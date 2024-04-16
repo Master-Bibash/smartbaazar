@@ -11,3 +11,8 @@ const String groceryIcon = "$baseAsset/groceryIcon.svg";
 const String jobIcon = "$baseAsset/jobIcon.svg";
 
 const String eventIcon = "$baseAsset/eventIcon.svg";
+
+class ImageConstant {
+  static String basePath = 'assets/images';
+  static String appLogo = '$basePath/appLogo.png';
+}
