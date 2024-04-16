@@ -4,11 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomTextFieldWidget extends StatelessWidget {
   final IconData icon;
   final String hintText;
-  const CustomTextFieldWidget({
-    super.key,
-    required this.icon,
-    required this.hintText,
-  });
+  final Widget? suffixIcon;
+  const CustomTextFieldWidget(
+      {super.key, required this.icon, required this.hintText, this.suffixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +31,7 @@ class CustomTextFieldWidget extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
                 border: InputBorder.none,
+                suffixIcon: suffixIcon,
                 hintText: hintText,
                 hintStyle: TextStyle(color: Color(0xffADADAD))),
           ),

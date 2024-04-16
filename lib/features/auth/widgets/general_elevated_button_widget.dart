@@ -30,7 +30,7 @@ class GeneralEelevatedButton extends StatelessWidget {
         ),
       ),
       child: Text(
-        'Log In',
+        text,
         style: TextStyle(
             fontSize: 20.sp, fontWeight: FontWeight.w700, color: Colors.white),
       ),

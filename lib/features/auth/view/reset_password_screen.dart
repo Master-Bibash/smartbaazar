@@ -7,8 +7,8 @@ import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart'
 import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,68 +30,54 @@ class SignUpScreen extends StatelessWidget {
                       height: 40.h,
                     ),
                     Text(
-                      'Sign Up',
+                      'Reset Passowrd',
                       style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w700,
                           color: const Color(0xff000000)),
+                    ),
+                    SizedBox(
+                      height: 13.h,
+                    ),
+                    Text(
+                      'Enter your new password for\n Smart bazar login',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w700,
+                          color: Color(0xffADADAD)),
                     )
                   ],
                 )),
                 SizedBox(
                   height: 40.h,
                 ),
-                const CustomTextFieldWidget(
-                  icon: Icons.person_2_outlined,
-                  hintText: 'Name',
-                ),
-                SizedBox(
-                  height: 22.h,
-                ),
-                const CustomTextFieldWidget(
-                  icon: Icons.call,
-                  hintText: 'Phone Number',
-                ),
-                SizedBox(
-                  height: 22.h,
-                ),
-                const CustomTextFieldWidget(
-                  icon: Icons.mail,
-                  hintText: 'Email',
-                ),
-                SizedBox(
-                  height: 22.h,
-                ),
-                const CustomTextFieldWidget(
-                  icon: Icons.person_2_outlined,
-                  hintText: 'User Name',
-                ),
-                SizedBox(
-                  height: 22.h,
-                ),
-                const CustomTextFieldWidget(
-                  icon: Icons.local_activity,
-                  hintText: 'Age',
-                ),
-                SizedBox(
-                  height: 22.h,
-                ),
-                const CustomTextFieldWidget(
-                  icon: Icons.person_2_rounded,
-                  hintText: 'Sex',
+                CustomTextFieldWidget(
+                  icon: Icons.lock,
+                  hintText: 'New Pasword',
+                  suffixIcon: Icon(
+                    Icons.visibility,
+                    size: 30,
+                    color: Color(0xffADADAD),
+                  ),
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
                 const CustomTextFieldWidget(
                   icon: Icons.lock,
-                  hintText: 'Password',
+                  hintText: 'Re-type New Password',
+                  suffixIcon: Icon(
+                    Icons.visibility,
+                    size: 30,
+                    color: Color(0xffADADAD),
+                  ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 60.h,
                 ),
                 GeneralEelevatedButton(
-                  text: 'Sign Up',
+                  text: 'Confirm',
                   onPresssed: () {
                     Navigator.push(
                         context,
@@ -100,11 +86,11 @@ class SignUpScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                  height: 40.h,
+                  height: 100.h,
                 ),
                 RichTextWidget(
-                  title: 'Already have an account? ',
-                  subtitle: 'Log In',
+                  title: 'Want to reach home screen? ',
+                  subtitle: 'Go back',
                   onPressed: () {},
                 ),
                 SizedBox(
