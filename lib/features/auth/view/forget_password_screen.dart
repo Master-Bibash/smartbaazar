@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/view/login_screen.dart';
+import 'package:smartbazar/features/auth/view/otp_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/view/home_screen.dart';
@@ -52,7 +53,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.mail,
                   hintText: 'Email or Phone Number',
                 ),
@@ -65,7 +66,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
+                            builder: (context) => const OtpScreen()));
                   },
                 ),
                 SizedBox(

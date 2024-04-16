@@ -92,7 +92,7 @@ class LoginScreen extends StatelessWidget {
                   height: 120.h,
                 ),
                 RichTextWidget(
-                  title: 'Don\'t have an account?',
+                  title: 'Don\'t have an account? ',
                   subtitle: 'Sign Up',
                   onPressed: () {
                     Navigator.push(
