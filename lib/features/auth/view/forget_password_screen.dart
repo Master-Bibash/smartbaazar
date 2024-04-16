@@ -7,8 +7,8 @@ import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart'
 import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class ForgetPasswordScreen extends StatelessWidget {
+  const ForgetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       height: 40.h,
                     ),
                     Text(
-                      'Reset Passowrd',
+                      'Forget Password?',
                       style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w700,
@@ -40,7 +40,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       height: 13.h,
                     ),
                     Text(
-                      'Enter your new password for\n Smart bazar login',
+                      'Enter your email or phone number to\n get an OTP to reset your Password',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 16.sp,
@@ -53,31 +53,14 @@ class ResetPasswordScreen extends StatelessWidget {
                   height: 40.h,
                 ),
                 const CustomTextFieldWidget(
-                  icon: Icons.lock,
-                  hintText: 'New Pasword',
-                  suffixIcon: Icon(
-                    Icons.visibility,
-                    size: 30,
-                    color: Color(0xffADADAD),
-                  ),
-                ),
-                SizedBox(
-                  height: 22.h,
-                ),
-                const CustomTextFieldWidget(
-                  icon: Icons.lock,
-                  hintText: 'Re-type New Password',
-                  suffixIcon: Icon(
-                    Icons.visibility,
-                    size: 30,
-                    color: Color(0xffADADAD),
-                  ),
+                  icon: Icons.mail,
+                  hintText: 'Email or Phone Number',
                 ),
                 SizedBox(
                   height: 60.h,
                 ),
                 GeneralEelevatedButton(
-                  text: 'Confirm',
+                  text: 'Send',
                   onPresssed: () {
                     Navigator.push(
                         context,
@@ -86,7 +69,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   },
                 ),
                 SizedBox(
-                  height: 100.h,
+                  height: 120.h,
                 ),
                 RichTextWidget(
                   title: 'Want to reach home screen? ',
