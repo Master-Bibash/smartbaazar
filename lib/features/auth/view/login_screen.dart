@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/auth/view/signup_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
+import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -18,7 +21,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 100.h,
+                  height: 80.h,
                 ),
                 Center(
                     child: Column(
@@ -68,12 +71,60 @@ class LoginScreen extends StatelessWidget {
                 ),
                 GeneralEelevatedButton(
                   text: 'Log In',
+                  onPresssed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  },
                 ),
+                SizedBox(
+                  height: 120.h,
+                ),
+                RichTextWidget(
+                  title: 'Don\'t have an account?',
+                  subtitle: 'Sign Up',
+                ),
+                SizedBox(
+                  height: 20.h,
+                )
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class RichTextWidget extends StatelessWidget {
+  final String title;
+  final String subtitle;
+  const RichTextWidget(
+      {super.key, required this.subtitle, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      text: TextSpan(
+          text: title,
+          style: TextStyle(
+              color: Color(0xffADADAD),
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w500),
+          children: <TextSpan>[
+            TextSpan(
+                text: subtitle,
+                style: TextStyle(
+                    color: Color(0xff000000),
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SignUpScreen()));
+                  })
+          ]),
     );
   }
 }

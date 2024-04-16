@@ -3,15 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GeneralEelevatedButton extends StatelessWidget {
   final String text;
-  const GeneralEelevatedButton({
-    super.key,
-    required this.text,
-  });
+  final VoidCallback onPresssed;
+  const GeneralEelevatedButton(
+      {super.key, required this.text, required this.onPresssed});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        onPresssed();
+      },
       style: ElevatedButton.styleFrom(
         backgroundColor: Color(0xff362677),
         padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 72.0),
