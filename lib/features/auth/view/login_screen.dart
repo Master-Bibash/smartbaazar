@@ -37,21 +37,21 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w700,
-                          color: Color(0xff000000)),
+                          color: const Color(0xff000000)),
                     )
                   ],
                 )),
                 SizedBox(
                   height: 50.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                   icon: Icons.mail,
                   hintText: 'Email',
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                   icon: Icons.lock,
                   hintText: 'Password',
                 ),
@@ -65,7 +65,8 @@ class LoginScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ForgetPasswordScreen()));
+                            builder: (context) =>
+                                const ForgetPasswordScreen()));
                   },
                   child: Align(
                     alignment: Alignment.centerRight,
@@ -74,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xff000000)),
+                          color: const Color(0xff000000)),
                     ),
                   ),
                 ),
@@ -84,8 +85,10 @@ class LoginScreen extends StatelessWidget {
                 GeneralEelevatedButton(
                   text: 'Log In',
                   onPresssed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
                   },
                 ),
                 SizedBox(
@@ -98,7 +101,7 @@ class LoginScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SignUpScreen()));
+                            builder: (context) => const SignUpScreen()));
                   },
                 ),
                 SizedBox(
@@ -129,14 +132,14 @@ class RichTextWidget extends StatelessWidget {
       text: TextSpan(
           text: title,
           style: TextStyle(
-              color: Color(0xffADADAD),
+              color: const Color(0xffADADAD),
               fontSize: 16.sp,
               fontWeight: FontWeight.w500),
           children: <TextSpan>[
             TextSpan(
                 text: subtitle,
                 style: TextStyle(
-                    color: Color(0xff000000),
+                    color: const Color(0xff000000),
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500),
                 recognizer: TapGestureRecognizer()

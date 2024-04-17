@@ -23,14 +23,11 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       width: MediaQuery.of(context).size.width * 0.54,
       child: Padding(
-        padding: EdgeInsets.only(top: 16.h, right: 16, left: 11, bottom: 20),
+        padding: EdgeInsets.only(top: 25.h, right: 16, left: 15, bottom: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SvgPicture.asset(
-              logoIcon,
-              // colorFilter: ColorFilter.mode(Colors., blendMode)
-            ),
+            Image.asset(ImageConstant.appLogo),
             SizedBox(
               height: 20.h,
             ),
@@ -57,7 +54,7 @@ class CustomDrawer extends StatelessWidget {
             ),
             Divider(
               thickness: 1.0,
-              color: Color(0xff000000).withOpacity(0.15),
+              color: const Color(0xff000000).withOpacity(0.15),
             ),
             SizedBox(
               height: 10.h,
