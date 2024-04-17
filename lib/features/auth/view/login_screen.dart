@@ -7,6 +7,7 @@ import 'package:smartbazar/features/auth/view/reset_password_screen.dart';
 import 'package:smartbazar/features/auth/view/signup_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
+import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
 import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
@@ -112,41 +113,6 @@ class LoginScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class RichTextWidget extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final VoidCallback onPressed;
-  const RichTextWidget(
-      {super.key,
-      required this.subtitle,
-      required this.title,
-      required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-          text: title,
-          style: TextStyle(
-              color: const Color(0xffADADAD),
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w500),
-          children: <TextSpan>[
-            TextSpan(
-                text: subtitle,
-                style: TextStyle(
-                    color: const Color(0xff000000),
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    onPressed();
-                  })
-          ]),
     );
   }
 }

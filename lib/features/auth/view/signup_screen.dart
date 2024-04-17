@@ -4,6 +4,7 @@ import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/view/login_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
+import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
 import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
