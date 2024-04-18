@@ -22,6 +22,7 @@ class CustomDrawer extends StatelessWidget {
     ];
     return Drawer(
       width: MediaQuery.of(context).size.width * 0.54,
+      backgroundColor: Colors.white,
       child: Padding(
         padding: EdgeInsets.only(top: 25.h, right: 16, left: 15, bottom: 20),
         child: Column(

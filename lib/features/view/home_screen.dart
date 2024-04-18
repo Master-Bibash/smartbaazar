@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       children: [
                         SizedBox(
-                          height: 22.h,
+                          height: 20.h,
                         ),
                         Text(
                           'Buy & sell anything.\n you\'ll forget everything else.',
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               ServiceContainer(),
               SizedBox(
-                height: 22.h,
+                height: 20.h,
               ),
               Text(
                 'SPONSORED LISTINGS',
@@ -99,10 +99,11 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Expanded(
                 child: ListView.separated(
+                  primary: false,
                   physics: BouncingScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.only(left: 10.w),
                   shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
                   itemCount: 5,
                   itemBuilder: (context, index) => ItemDescriptionWidget(),
                   separatorBuilder: (BuildContext context, int index) {
@@ -130,6 +131,7 @@ class ItemDescriptionWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Container(
           padding:

@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/auth/view/bottom_navigation_bar.dart';
 import 'package:smartbazar/features/auth/view/forget_password_screen.dart';
 import 'package:smartbazar/features/auth/view/reset_password_screen.dart';
 import 'package:smartbazar/features/auth/view/signup_screen.dart';
@@ -89,7 +90,8 @@ class LoginScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
+                            builder: (context) =>
+                                const BottomNavigationScreen()));
                   },
                 ),
                 SizedBox(
