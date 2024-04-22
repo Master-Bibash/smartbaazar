@@ -3,7 +3,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/widgets/banner_widget.dart';
+import 'package:smartbazar/features/widgets/brand_bazar_widget.dart';
 import 'package:smartbazar/features/widgets/custom_drawer_widget.dart';
+import 'package:smartbazar/features/widgets/item_description_widget.dart';
+import 'package:smartbazar/features/widgets/service_container_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,8 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return GenericSafeArea(
@@ -104,8 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 8.h,
                     ),
                     SizedBox(
-                      // height: 270.h,
-                      height: 291.h,
+                      height: 290.h,
                       child: ListView.separated(
                         primary: false,
                         physics: BouncingScrollPhysics(),
@@ -128,19 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 20.h,
               ),
-              Container(
-                height: 72.h,
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.only(left: 60.w, top: 27.h, bottom: 27.w),
-                color: Color(0xffD33636),
-                child: Text(
-                  'AD BANNER 430*72',
-                  style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white),
-                ),
-              ),
+              BannerWidget(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 20.h),
                 child: Column(
@@ -173,266 +162,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-              )
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              BannerWidget(),
+              SizedBox(
+                height: 20.h,
+              ),
+              BrandBazarWidget(),
+              SizedBox(
+                height: 12.h,
+              ),
+              BannerWidget(),
             ],
           ),
         ),
       ),
-    );
-  }
-}
-
-class ItemDescriptionWidget extends StatelessWidget {
-  const ItemDescriptionWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 291.h,
-      width: 198.w,
-      padding: EdgeInsets.only(
-          top: 6.41.h, left: 8.59.w, right: 11.45.w, bottom: 7.51.h),
-      // color: Colors.red,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(
-            padding: EdgeInsets.only(
-                top: 22.h, bottom: 25.h, left: 15.w, right: 20.w),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16.r),
-              color: const Color(0xffF6F1F1),
-            ),
-            child: Image.asset(
-              ImageConstant.laptopImage,
-            ),
-          ),
-          SizedBox(
-            height: 9.h,
-          ),
-          Text(
-            'Acer Aspire 5 A515-56-32DK Intel\n Core i3 11th Gen/15.6 FHD',
-            style: TextStyle(
-                fontSize: 10.sp,
-                color: Colors.black,
-                fontWeight: FontWeight.w700),
-          ),
-          SizedBox(
-            height: 16.h,
-          ),
-          Text('Rs. 60,0000',
-              style: TextStyle(
-                  fontSize: 10.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w700)),
-          Row(
-            children: [
-              Text('Rs. 100,00'),
-              SizedBox(
-                width: 10.w,
-              ),
-              Container(
-                  padding: EdgeInsets.only(
-                      left: 10.w, right: 15.w, top: 5.h, bottom: 5.h),
-                  decoration: BoxDecoration(
-                    color: const Color(0xff362677),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(0),
-                      topRight: Radius.circular(10.r),
-                      bottomLeft: Radius.circular(10.r),
-                    ),
-                  ),
-                  child: Text(
-                    '-40% Off',
-                    style: TextStyle(
-                        fontSize: 9.sp,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.white),
-                  )),
-            ],
-          ),
-          SizedBox(
-            height: 13.h,
-          ),
-          Text('Tech Store Nepal Kathamandu',
-              style: TextStyle(
-                  decoration: TextDecoration.lineThrough,
-                  fontSize: 9.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black)),
-          SizedBox(
-            height: 6.h,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              RatingBar.builder(
-                initialRating: 4,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemSize: 12,
-                itemPadding: EdgeInsets.symmetric(horizontal: 1.0),
-                itemBuilder: (context, _) =>
-                    Icon(Icons.star, color: Color(0xfff781740)),
-                onRatingUpdate: (rating) {
-                  print(rating);
-                },
-              ),
-              SizedBox(
-                width: 2.w,
-              ),
-              Text(
-                "(4)",
-                style: TextStyle(
-                    fontSize: 9.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff888888)),
-              )
-            ],
-          ),
-          SizedBox(
-            height: 12.h,
-          ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Icon(
-                Icons.visibility,
-                size: 20,
-                color: Color(0xff888888),
-              ),
-              SizedBox(
-                width: 3.w,
-              ),
-              Text(
-                '2K Views',
-                style: TextStyle(
-                  fontSize: 9.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff888888),
-                ),
-              ),
-              SizedBox(
-                width: 10.w,
-              ),
-              Icon(
-                Icons.location_on,
-                size: 20,
-                color: Color(0xff888888),
-              ),
-              SizedBox(
-                width: 3.w,
-              ),
-              Text(
-                'Kathmandu',
-                style: TextStyle(
-                  fontSize: 9.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff888888),
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class ServiceContainer extends StatelessWidget {
-  const ServiceContainer({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      color: Color(0xff73193E),
-      child: const Stack(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ServicesListWidget(
-                icons: openCart,
-                title: 'Product',
-              ),
-              // SizedBox(width: 10),
-              ServicesListWidget(
-                icons: brandBazarIcon,
-                title: 'Brandbazar',
-              ),
-              // SizedBox(width: 10),
-              ServicesListWidget(
-                icons: b2bIcon,
-                title: 'B2B',
-              ),
-              // SizedBox(width: 10),
-              ServicesListWidget(
-                title: 'Used',
-                icons: usedIcon,
-              ),
-              // SizedBox(width: 10),
-              ServicesListWidget(
-                icons: servicesIcon,
-                title: 'Service',
-              ),
-              // SizedBox(width: 10),
-              ServicesListWidget(
-                icons: jobIcon,
-                title: 'Jobs',
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.white,
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class ServicesListWidget extends StatelessWidget {
-  final String icons;
-  final String title;
-  const ServicesListWidget(
-      {super.key, required this.icons, required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SvgPicture.asset(
-          icons,
-          colorFilter: ColorFilter.mode(
-            Colors.white,
-            BlendMode.srcIn,
-          ),
-        ),
-        SizedBox(height: 3.h),
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w700,
-            color: Colors.white,
-          ),
-        ),
-      ],
     );
   }
 }

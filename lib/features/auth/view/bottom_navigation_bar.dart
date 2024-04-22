@@ -68,8 +68,13 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
           padding: EdgeInsets.all(20.h),
-          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.red),
-          child: Icon(Icons.add),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(width: 3.w, color: Colors.white),
+              color: const Color.fromARGB(255, 238, 234, 234)),
+          child: Icon(
+            Icons.qr_code_scanner_rounded,
+          ),
           // elevation: 3.0,
         ),
         body: _pages.elementAt(_selectedTab),
