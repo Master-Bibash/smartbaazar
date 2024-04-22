@@ -66,11 +66,11 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 247, 246, 246),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white,
-          onPressed: () {},
+        floatingActionButton: Container(
+          padding: EdgeInsets.all(20.h),
+          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.red),
           child: Icon(Icons.add),
-          elevation: 3.0,
+          // elevation: 3.0,
         ),
         body: _pages.elementAt(_selectedTab),
         bottomNavigationBar: ClipRRect(
