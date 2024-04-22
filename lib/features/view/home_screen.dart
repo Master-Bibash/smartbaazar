@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return GenericSafeArea(
+      color: Colors.white,
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
