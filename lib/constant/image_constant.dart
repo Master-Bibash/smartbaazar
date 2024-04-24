@@ -17,4 +17,5 @@ class ImageConstant {
   static String appLogo = '$basePath/appLogo.png';
   static String shoppingImage = '$basePath/shoppingImage.png';
   static String laptopImage = '$basePath/laptopImage.png';
+  static String personImage = '$basePath/personImage.png';
 }
