@@ -75,7 +75,11 @@ class AccountDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                GeneralEelevatedButton(text: 'Update', onPresssed: () {})
+                GeneralEelevatedButton(
+                    text: 'Update',
+                    width: 80.w,
+                    isSmallText: true,
+                    onPresssed: () {})
               ],
             ),
           )

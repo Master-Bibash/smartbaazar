@@ -207,8 +207,6 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         height: 20.h,
                       ),
                       Row(
-                        // mainAxisAlignment: MainAxisAlignment.start,
-                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

@@ -4,49 +4,68 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class GeneralEelevatedButton extends StatelessWidget {
   final String text;
   final VoidCallback onPresssed;
-  // final double? height;
-  // final double? width;
-  // final bool? isSmallText;
-  const GeneralEelevatedButton({
-    super.key,
-    required this.text,
-    required this.onPresssed,
-    // this.height,
-    // this.width,
-    // this.isSmallText/
-  });
+  final bool isSmallText;
+  final Color? bgColor;
+  final Color? fgColor;
+  TextStyle? textStyle;
+  final double? width;
+
+  GeneralEelevatedButton(
+      {super.key,
+      required this.text,
+      required this.onPresssed,
+      this.isSmallText = false,
+      this.textStyle,
+      this.bgColor,
+      this.width,
+      this.fgColor});
 
   @override
   Widget build(BuildContext context) {
+    if (textStyle == null) {
+      if (isSmallText) {
+        textStyle = Theme.of(context).textTheme.titleSmall!.copyWith(
+              color: fgColor ?? Colors.white,
+              fontSize: 12.sp,
+              fontWeight: FontWeight.w400,
+            );
+      } else {
+        textStyle = Theme.of(context).textTheme.titleMedium!.copyWith(
+              fontSize: 14.sp,
+              color: fgColor ?? Colors.white,
+              fontWeight: FontWeight.w400,
+            );
+      }
+    }
     return Container(
-      // height: height ?? 45,
-      // width: width ?? 100,
+      // height: 55,
+      width: width ?? 200.w,
       child: ElevatedButton(
         onPressed: () {
           onPresssed();
         },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xff362677),
-          padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 65.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30.r),
-              bottomLeft: Radius.circular(30.r),
-              topRight: Radius.circular(30.r),
-              bottomRight: Radius.circular(30.r),
-            ),
-            side: BorderSide(
-              color: Color(0xff362677), // Border color
-              width: 1.0, // Border width
-            ),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(
+            Color(0xff362677),
           ),
+          padding:
+              MaterialStateProperty.all(EdgeInsets.symmetric(vertical: 12.h)),
+          // shape: RoundedRectangleBorder(
+          //   borderRadius: BorderRadius.only(
+          //     topLeft: Radius.circular(30.r),
+          //     bottomLeft: Radius.circular(30.r),
+          //     topRight: Radius.circular(30.r),
+          //     bottomRight: Radius.circular(30.r),
+          //   ),
+          //   side: BorderSide(
+          //     color: Color(0xff362677), // Border color
+          //     width: 1.0, // Border width
+          //   ),
         ),
         child: Text(
           text,
-          style: TextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w700,
-              color: Colors.white),
+          textAlign: TextAlign.center,
+          style: textStyle,
         ),
       ),
     );
