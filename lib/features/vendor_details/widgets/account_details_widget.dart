@@ -77,7 +77,7 @@ class AccountDetailsWidget extends StatelessWidget {
                 ),
                 GeneralEelevatedButton(
                     text: 'Update',
-                    width: 80.w,
+                    width: 115.w,
                     isSmallText: true,
                     onPresssed: () {})
               ],

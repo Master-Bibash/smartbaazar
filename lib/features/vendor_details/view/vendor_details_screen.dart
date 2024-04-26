@@ -247,7 +247,11 @@ class VerifyAccountWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                GeneralEelevatedButton(text: 'Update', onPresssed: () {})
+                GeneralEelevatedButton(
+                    text: 'Update',
+                    isSmallText: true,
+                    width: 115.w,
+                    onPresssed: () {})
               ],
             ),
           )

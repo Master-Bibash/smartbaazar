@@ -2,6 +2,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/widgets/item_description_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
@@ -297,6 +300,134 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                           )
                         ],
                       ),
+                      SizedBox(height: 10.h),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.visibility,
+                            color: Color(0xff888888),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            '2K Views',
+                            style: TextStyle(
+                                color: Color(0xff888888),
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Icon(
+                            Icons.location_on_outlined,
+                            color: Color(0xff888888),
+                          ),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Text(
+                            'Kathamandu',
+                            style: TextStyle(
+                                color: Color(0xff888888),
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          Container()
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          SvgPicture.asset(contactSellerIcon),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            'Contact Seller',
+                            style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xff000000)),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          SvgPicture.asset(phoneIcon),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            'Call',
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff000000)),
+                          ),
+                          Spacer(),
+                          SvgPicture.asset(messagesIcon),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            'Message',
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff000000)),
+                          ),
+                          Spacer(),
+                          SvgPicture.asset(whatsAppIcon),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            'Whatsapp',
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                                color: Color(0xff000000)),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'SIMILAR LISTING',
+                            style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Color(0xff000000),
+                                fontWeight: FontWeight.w700),
+                          ),
+                          Text(
+                            'View all',
+                            style: TextStyle(
+                                fontSize: 10.sp,
+                                color: Color(0xff000000),
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Row(
+                        children: [
+                          // ItemDescriptionWidget(),
+                          // ItemDescriptionWidget(),
+                        ],
+                      )
                     ],
                   ),
                 ))

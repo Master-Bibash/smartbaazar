@@ -123,7 +123,11 @@ class BackgroundImageDescriptionWidget extends StatelessWidget {
                 SizedBox(
                   height: 8.h,
                 ),
-                GeneralEelevatedButton(text: 'Add', onPresssed: () {})
+                GeneralEelevatedButton(
+                    text: 'Add',
+                    width: 115.w,
+                    isSmallText: true,
+                    onPresssed: () {})
               ],
             ),
           ),

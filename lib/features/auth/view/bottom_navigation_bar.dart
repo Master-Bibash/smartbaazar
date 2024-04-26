@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/features/message/view/message_view_screen.dart';
+import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
 import 'package:smartbazar/features/vendor_details/view/vendor_details_screen.dart';
 import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
@@ -37,15 +38,9 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   int _selectedTab = 0;
 
   List _pages = [
-    // Center(
-    //   child: Text("Home"),
-    // ),
     HomeScreen(),
-
     MessageViewScreen(),
-    Center(
-      child: Text("Contact"),
-    ),
+    OrderDetailsScreen(),
     VendroDetailsScreen(),
     Center(
       child: Text("pppp"),

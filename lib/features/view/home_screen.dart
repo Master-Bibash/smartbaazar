@@ -105,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 8.h,
                     ),
                     SizedBox(
-                      height: 290.h,
+                      height: 292.h,
                       child: ListView.separated(
                         primary: false,
                         physics: BouncingScrollPhysics(),

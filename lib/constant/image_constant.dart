@@ -11,6 +11,10 @@ const String groceryIcon = "$baseAsset/groceryIcon.svg";
 const String jobIcon = "$baseAsset/jobIcon.svg";
 
 const String eventIcon = "$baseAsset/eventIcon.svg";
+const String contactSellerIcon = "$baseAsset/contactSellerIcon.svg";
+const String whatsAppIcon = "$baseAsset/whatsAppIcon.svg";
+const String messagesIcon = "$baseAsset/messagesIcon.svg";
+const String phoneIcon = "$baseAsset/phoneIcon.svg";
 
 class ImageConstant {
   static String basePath = 'assets/images';
@@ -18,4 +22,5 @@ class ImageConstant {
   static String shoppingImage = '$basePath/shoppingImage.png';
   static String laptopImage = '$basePath/laptopImage.png';
   static String personImage = '$basePath/personImage.png';
+  static String upayaImage = '$basePath/upayaImage.png';
 }

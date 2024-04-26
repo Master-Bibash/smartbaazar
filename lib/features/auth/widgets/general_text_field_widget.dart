@@ -7,17 +7,20 @@ class CustomTextFieldWidget extends StatelessWidget {
   final Widget? suffixIcon;
   final Color? fillColor;
   final bool? fill;
+  final bool? readOnly;
   const CustomTextFieldWidget(
       {super.key,
       required this.icon,
       required this.hintText,
       this.suffixIcon,
       this.fill,
-      this.fillColor});
+      this.fillColor,
+      this.readOnly});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      readOnly: readOnly ?? false,
       decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(vertical: 10),
           border: OutlineInputBorder(

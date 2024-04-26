@@ -137,7 +137,11 @@ class BankDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 15.h,
                 ),
-                GeneralEelevatedButton(text: 'Submit', onPresssed: () {}),
+                GeneralEelevatedButton(
+                    text: 'Submit',
+                    isSmallText: true,
+                    width: 115.w,
+                    onPresssed: () {}),
                 SizedBox(
                   height: 10.h,
                 )

@@ -26,12 +26,12 @@ class GeneralEelevatedButton extends StatelessWidget {
       if (isSmallText) {
         textStyle = Theme.of(context).textTheme.titleSmall!.copyWith(
               color: fgColor ?? Colors.white,
-              fontSize: 12.sp,
+              fontSize: 13.sp,
               fontWeight: FontWeight.w400,
             );
       } else {
         textStyle = Theme.of(context).textTheme.titleMedium!.copyWith(
-              fontSize: 14.sp,
+              fontSize: 16.sp,
               color: fgColor ?? Colors.white,
               fontWeight: FontWeight.w400,
             );
