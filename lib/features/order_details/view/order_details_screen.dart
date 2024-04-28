@@ -200,7 +200,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 child: RichTextWidget(
                     title:
                         'By proceeding with the this order, you acknowledge to accept our  ',
-                    textStyle: TextStyle(
+                    titleStyle: TextStyle(
                         fontSize: 10.sp,
                         fontWeight: FontWeight.w700,
                         color: Color(0xff36383C)),

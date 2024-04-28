@@ -6,14 +6,16 @@ class RichTextWidget extends StatelessWidget {
   final String title;
   final String subtitle;
   final VoidCallback onPressed;
-  final TextStyle? textStyle;
+  final TextStyle? titleStyle;
+  final Color? titleColor;
   final TextStyle? subtitleStyle;
   const RichTextWidget({
     super.key,
     required this.subtitle,
     required this.title,
     required this.onPressed,
-    this.textStyle,
+    this.titleStyle,
+    this.titleColor,
     this.subtitleStyle,
   });
 
@@ -22,9 +24,9 @@ class RichTextWidget extends StatelessWidget {
     return RichText(
       text: TextSpan(
           text: title,
-          style: textStyle ??
+          style: titleStyle ??
               TextStyle(
-                  color: const Color(0xffADADAD),
+                  color: titleColor ?? const Color(0xffADADAD),
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w500),
           children: <TextSpan>[

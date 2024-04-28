@@ -15,6 +15,7 @@ const String contactSellerIcon = "$baseAsset/contactSellerIcon.svg";
 const String whatsAppIcon = "$baseAsset/whatsAppIcon.svg";
 const String messagesIcon = "$baseAsset/messagesIcon.svg";
 const String phoneIcon = "$baseAsset/phoneIcon.svg";
+const String tagIcon = "$baseAsset/tagIcon.svg";
 
 class ImageConstant {
   static String basePath = 'assets/images';
@@ -23,4 +24,6 @@ class ImageConstant {
   static String laptopImage = '$basePath/laptopImage.png';
   static String personImage = '$basePath/personImage.png';
   static String upayaImage = '$basePath/upayaImage.png';
+  static String visitStore = '$basePath/visitStoreImage.png';
+  static String scartchWinImage = '$basePath/scratchWinImage.png';
 }
