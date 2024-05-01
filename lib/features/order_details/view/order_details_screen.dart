@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
+import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
@@ -22,7 +23,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       backgroundColor: const Color(0xffF6F1F1),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.h),
+          padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -260,12 +261,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 ],
               ),
               SizedBox(
-                height: 10.h,
+                height: 15.h,
               ),
-              GeneralEelevatedButton(
-                  width: MediaQuery.of(context).size.width,
-                  text: 'Place Order',
-                  onPresssed: () {}),
+              const GeneralTextButton(
+                  bgColor: Color(0xff362677),
+                  fgColor: Colors.white,
+                  title: 'Place Order'),
               SizedBox(
                 height: 20.h,
               )
