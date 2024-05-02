@@ -18,6 +18,8 @@ class GeneralTextButton extends StatelessWidget {
   final String? prefixImage;
   final double? borderRadius;
   final double? height;
+  final double? width;
+
   final double? marginH;
 
   const GeneralTextButton({
@@ -38,6 +40,7 @@ class GeneralTextButton extends StatelessWidget {
     this.prefixColor,
     this.imageH,
     this.prefixIcon,
+    this.width,
   }) : super(key: key);
 
   @override
@@ -45,6 +48,7 @@ class GeneralTextButton extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: marginH ?? 16.h),
       height: height ?? 45.h,
+      width: width ?? MediaQuery.of(context).size.width,
       child: OutlinedButton(
         style: ButtonStyle(
           splashFactory: NoSplash.splashFactory,
@@ -59,7 +63,7 @@ class GeneralTextButton extends StatelessWidget {
           ),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius ?? 8),
+              borderRadius: BorderRadius.circular(borderRadius ?? 10.r),
             ),
           ),
         ),

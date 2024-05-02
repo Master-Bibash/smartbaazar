@@ -4,6 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/add_to_cart/view/adde_to_card_screeen.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
 import 'package:smartbazar/features/widgets/item_description_widget.dart';
@@ -184,10 +185,19 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                         color: const Color(0xff362677)),
                                     child: Column(
                                       children: [
-                                        Icon(
-                                          Icons.add,
-                                          size: 15.h,
-                                          color: Colors.white,
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (_) =>
+                                                        AddToCartScreen()));
+                                          },
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 15.h,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                         Text(
                                           'Add to cart',
