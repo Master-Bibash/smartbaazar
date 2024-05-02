@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -185,7 +186,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                         color: const Color(0xff362677)),
                                     child: Column(
                                       children: [
-                                        GestureDetector(
+                                        InkWell(
                                           onTap: () {
                                             Navigator.push(
                                                 context,
@@ -887,6 +888,7 @@ class ProductTagListWidget extends StatelessWidget {
               GeneralTextButton(
                 marginH: 0,
                 isSmallText: true,
+                width: MediaQuery.of(context).size.width / 1,
                 height: 28.h,
                 title: 'Laptop',
                 fgColor: const Color(0xff000000),

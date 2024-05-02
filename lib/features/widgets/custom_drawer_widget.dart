@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/create_listing/view/create_new_listing_scree.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -60,29 +61,35 @@ class CustomDrawer extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 20.w,
-                ),
-                const Icon(Icons.add),
-                SizedBox(
-                  width: 5.w,
-                ),
-                Text(
-                  'Creating Listing',
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff000000),
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => CreateNewListinScreen()));
+              },
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 20.w,
                   ),
-                ),
-                Spacer(),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 20,
-                ),
-              ],
+                  const Icon(Icons.add),
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                  Text(
+                    'Creating Listing',
+                    style: TextStyle(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff000000),
+                    ),
+                  ),
+                  Spacer(),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 20,
+                  ),
+                ],
+              ),
             ),
           ],
         ),

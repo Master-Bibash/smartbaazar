@@ -3,19 +3,36 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
+import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
-class AddToCartScreen extends StatelessWidget {
+class AddToCartScreen extends StatefulWidget {
   const AddToCartScreen({super.key});
+
+  @override
+  State<AddToCartScreen> createState() => _AddToCartScreenState();
+}
+
+class _AddToCartScreenState extends State<AddToCartScreen> {
+  String dropdownvalue = 'Item 1';
+
+  // List of items in our dropdown menu
+  var items = [
+    'Item 1',
+    'Item 2',
+    'Item 3',
+    'Item 4',
+    'Item 5',
+  ];
 
   @override
   Widget build(BuildContext context) {
     return GenericSafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffF6F1F1),
-        body: Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.h),
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 16.h),
             child: Column(
               children: [
                 Padding(
@@ -58,14 +75,18 @@ class AddToCartScreen extends StatelessWidget {
                 SizedBox(
                   height: 30.h,
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 ListView.separated(
+                    physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (context, int index) =>
                         AddToCartPRoductDetails(),
                     separatorBuilder: (context, index) => SizedBox(
                           height: 16.h,
                         ),
-                    itemCount: 3),
+                    itemCount: 5),
                 SizedBox(
                   height: 20.h,
                 ),
@@ -76,6 +97,7 @@ class AddToCartScreen extends StatelessWidget {
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
                             'Sub Total',
@@ -93,15 +115,43 @@ class AddToCartScreen extends StatelessWidget {
                           )
                         ],
                       ),
+                      DropdownButton(
+                        // Initial Value
+                        value: dropdownvalue,
+
+                        // Down Arrow Icon
+                        icon: const Icon(Icons.keyboard_arrow_down),
+
+                        // Array list of items
+                        items: items.map((String items) {
+                          return DropdownMenuItem(
+                            value: items,
+                            child: Text(items),
+                          );
+                        }).toList(),
+
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownvalue = newValue!;
+                          });
+                        },
+                      ),
                       GeneralTextButton(
-                          width: MediaQuery.of(context).size.width / 1.9,
-                          marginH: 0,
-                          fgColor: Colors.white,
-                          bgColor: Color(0xff362677),
-                          title: 'Checkout')
+                        // width: MediaQuery.of(context).size.width / 1.9,
+                        marginH: 0,
+                        fgColor: Colors.white,
+                        bgColor: Color(0xff362677),
+                        title: 'Checkout',
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => OrderDetailsScreen()));
+                        },
+                      )
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

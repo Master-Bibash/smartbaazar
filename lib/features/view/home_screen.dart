@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/widgets/banner_widget.dart';
 import 'package:smartbazar/features/widgets/brand_bazar_widget.dart';
 import 'package:smartbazar/features/widgets/custom_drawer_widget.dart';
@@ -30,6 +32,21 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Row(
+              //   children: [
+              //     IconButton(
+              //       icon: Icon(Icons.menu),
+              //       onPressed: () {
+              //         Scaffold.of(context).openDrawer();
+              //       },
+              //     ),
+              //     Expanded(
+              //         child: TextField(
+              //       decoration: InputDecoration(),
+              //     )),
+              //     SvgPicture.asset(openCart),
+              //   ],
+              // ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
                 child: Column(
