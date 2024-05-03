@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/message/view/message_view_screen.dart';
 import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
 import 'package:smartbazar/features/vendor_details/view/vendor_details_screen.dart';
@@ -58,21 +60,49 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
     return GenericSafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffF6F1F1),
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.miniCenterDocked,
-        floatingActionButton: Container(
-          height: 60.h,
-          // padding: EdgeInsets.all(20.h),
-          padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.h),
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(width: 2.w, color: Colors.white),
-              color: const Color.fromARGB(255, 238, 234, 234)),
-          child: const Icon(
-            Icons.qr_code_scanner_rounded,
-            color: Colors.red,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Padding(
+          padding: EdgeInsets.only(top: 10.h),
+          // child: Container(
+          //   // height: 60.h,
+          //   // padding: EdgeInsets.all(20.h),
+          //   // padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.h),
+          //   padding: const EdgeInsets.all(4),
+
+          //   decoration: BoxDecoration(
+          //       shape: BoxShape.circle,
+          //       border: Border.all(width: 4.w, color: Colors.white),
+          //       color: const Color.fromARGB(255, 238, 234, 234)),
+          //   child: Container(
+          //     height: 80,
+          //     decoration: BoxDecoration(
+          //         color: Color(0xff362677), shape: BoxShape.circle),
+          //     child: SvgPicture.asset(qrIcon),
+          //   ),
+          //   // elevation: 3.0,
+          // ),
+          child: SizedBox(
+            child: Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                border: Border.all(
+                  width: 1.w,
+                  color: Color(0xffffF8F8F8),
+                ),
+              ),
+              child: Container(
+                height: 80,
+                padding: EdgeInsets.all(12.h),
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color(0xff362677).withOpacity(0.9),
+                ),
+                child: SvgPicture.asset(qrIcon),
+              ),
+            ),
           ),
-          // elevation: 3.0,
         ),
         body: _pages.elementAt(_selectedTab),
         bottomNavigationBar: ClipRRect(
@@ -83,15 +113,29 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
               topRight: Radius.circular(35.r),
             ),
             child: SizedBox(
-              height: 60.h,
+              height: 65.h,
               child: BottomNavigationBar(
-                backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                 type: BottomNavigationBarType.fixed,
+                selectedItemColor: Color(0xff362677),
+                selectedIconTheme: IconThemeData(color: Color(0xff362677)),
+                selectedLabelStyle: TextStyle(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xff36383C)),
+                unselectedLabelStyle: TextStyle(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xff36383C)),
+                backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                 currentIndex: _selectedTab,
                 onTap: (index) => _changeTab(index),
-                items: const <BottomNavigationBarItem>[
+                items: <BottomNavigationBarItem>[
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.home_outlined),
+                    icon: SvgPicture.asset(
+                      homeIcon,
+                      colorFilter:
+                          ColorFilter.mode(Color(0xff36383C), BlendMode.srcIn),
+                    ),
                     label: 'Home',
                   ),
                   BottomNavigationBarItem(
@@ -99,11 +143,16 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
                     label: 'Message',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.feed_outlined),
+                    icon: SvgPicture.asset(listIcon),
                     label: 'Feed',
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.person_2_rounded),
+                    icon: Container(
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border:
+                                Border.all(width: 1.w, color: Colors.black)),
+                        child: Image.asset(ImageConstant.personImage)),
                     label: 'Account',
                   ),
                 ],

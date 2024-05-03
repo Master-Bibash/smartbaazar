@@ -6,6 +6,7 @@ import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
+import 'package:smartbazar/features/proceed_pay/view/proceed_to_pay_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
@@ -261,12 +262,15 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 ],
               ),
               SizedBox(
-                height: 15.h,
+                height: 30.h,
               ),
-              const GeneralTextButton(
-                  bgColor: Color(0xff362677),
-                  fgColor: Colors.white,
-                  title: 'Place Order'),
+              GeneralTextButton(
+                bgColor: Color(0xff362677),
+                fgColor: Colors.white,
+                title: 'Place Order',
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => ProceesToPayScreen())),
+              ),
               SizedBox(
                 height: 20.h,
               )

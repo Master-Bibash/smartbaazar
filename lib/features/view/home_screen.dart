@@ -41,17 +41,17 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Expanded(
                 child: SizedBox(
-                  height: 35.h,
+                  height: 33.h,
                   child: TextFormField(
                     decoration: InputDecoration(
-                        hintText: 'search...',
-                        prefixIconConstraints: BoxConstraints(minWidth: 30),
+                        hintText: 'Search...',
+                        prefixIconConstraints: BoxConstraints(minWidth: 40.w),
                         hintStyle: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w500,
-                            color: Color(0xffBFBFBF)),
+                            color: const Color(0xffBFBFBF)),
                         prefixIcon: Padding(
-                          padding: EdgeInsets.only(top: 8.h, left: 5.w),
+                          padding: EdgeInsets.only(top: 5.h, left: 8.w),
                           child: Icon(
                             Icons.search,
                             size: 20.sp,
@@ -67,8 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           child: Icon(
                             Icons.search,
-                            size: 25,
-                            weight: 25,
+                            size: 30.sp,
                             color: Colors.white,
                           ),
                         ),
@@ -101,7 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16.w,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
