@@ -49,6 +49,7 @@ class GeneralTextButton extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: marginH ?? 16.h),
       height: height ?? 45.h,
       // width: width ?? MediaQuery.of(context).size.width,
+      width: width,
       child: OutlinedButton(
         style: ButtonStyle(
           splashFactory: NoSplash.splashFactory,

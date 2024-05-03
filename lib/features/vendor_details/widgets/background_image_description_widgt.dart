@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
+import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 
 class BackgroundImageDescriptionWidget extends StatelessWidget {
   const BackgroundImageDescriptionWidget({
@@ -123,11 +124,15 @@ class BackgroundImageDescriptionWidget extends StatelessWidget {
                 SizedBox(
                   height: 8.h,
                 ),
-                GeneralEelevatedButton(
-                    text: 'Add',
-                    width: 115.w,
-                    isSmallText: true,
-                    onPresssed: () {})
+                GeneralTextButton(
+                  marginH: 0,
+                  height: 25.h,
+                  width: 90.w,
+                  title: 'Add',
+                  fgColor: Colors.white,
+                  bgColor: Color(0xff362677),
+                  isSmallText: true,
+                )
               ],
             ),
           ),

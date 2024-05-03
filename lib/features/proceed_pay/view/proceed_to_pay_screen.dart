@@ -14,6 +14,7 @@ class ProceesToPayScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
+          toolbarHeight: 30.h,
         ),
         body: Column(
           children: [
@@ -134,24 +135,24 @@ class ProceesToPayScreen extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 10.sp,
                             fontWeight: FontWeight.w500,
-                            color: Color(0xff36383C)),
+                            color: const Color(0xff36383C)),
                       ),
                       Text(
                         '9840714218',
                         style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w700,
-                            color: Color(0xff36383C)),
+                            color: const Color(0xff36383C)),
                       )
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   GeneralTextButton(
                       marginH: 0,
                       height: 38.h,
                       isSmallText: true,
                       fgColor: Colors.white,
-                      bgColor: Color(0xff362677),
+                      bgColor: const Color(0xff362677),
                       title: 'Pay with Fonepay')
                 ],
               ),

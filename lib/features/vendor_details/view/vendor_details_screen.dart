@@ -5,6 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
+import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
+import 'package:smartbazar/features/vendor_details/view/my_subscription_screen.dart';
 import 'package:smartbazar/features/vendor_details/widgets/account_details_widget.dart';
 import 'package:smartbazar/features/vendor_details/widgets/background_image_description_widgt.dart';
 import 'package:smartbazar/features/vendor_details/widgets/bank_details_widget.dart';
@@ -141,6 +143,7 @@ class VendroDetailsScreen extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(left: 20.w),
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
                                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -176,6 +179,25 @@ class VendroDetailsScreen extends StatelessWidget {
                                       )
                                     ],
                                   ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
+                                  GeneralTextButton(
+                                    marginH: 0,
+                                    height: 25.h,
+                                    width: 100.w,
+                                    title: 'Update',
+                                    fgColor: Colors.white,
+                                    bgColor: Color(0xff362677),
+                                    isSmallText: true,
+                                    onPressed: () {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) =>
+                                                  MySubscriptionScreen()));
+                                    },
+                                  )
                                 ],
                               ),
                             )
@@ -247,11 +269,15 @@ class VerifyAccountWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                GeneralEelevatedButton(
-                    text: 'Update',
-                    isSmallText: true,
-                    width: 115.w,
-                    onPresssed: () {})
+                GeneralTextButton(
+                  marginH: 0,
+                  height: 25.h,
+                  width: 100.w,
+                  title: 'Update',
+                  fgColor: Colors.white,
+                  bgColor: Color(0xff362677),
+                  isSmallText: true,
+                )
               ],
             ),
           )
