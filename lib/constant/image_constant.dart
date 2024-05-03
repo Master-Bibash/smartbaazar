@@ -20,6 +20,9 @@ const String invoiceIcon = "$baseAsset/invoiceIcon.svg";
 const String deleteIcon = "$baseAsset/deleteIcon.svg";
 const String payementIcon = "$baseAsset/paymentIcon.svg";
 const String createListingIcon = "$baseAsset/createListingIcon.svg";
+const String dropDownIcon = "$baseAsset/dropDownIcon.svg";
+const String userIcon = "$baseAsset/userIcon.svg";
+const String iIcon = "$baseAsset/iIcon.svg";
 
 class ImageConstant {
   static String basePath = 'assets/images';

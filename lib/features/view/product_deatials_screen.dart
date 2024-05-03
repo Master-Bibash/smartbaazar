@@ -20,9 +20,6 @@ class ProductDetailsScreen extends StatefulWidget {
 
 class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   List<String> itemsList = [
-    // 'https://varro.imgix.net/1680600677822.jpg?w=600&h=370&fit=scale&q=65',
-    // 'https://varro.imgix.net/1680600689626.jpg?w=600&h=370&fit=scale&q=65',
-    // 'https://varro.imgix.net/1680600689626.jpg?w=600&h=370&fit=scale&q=65',
     ImageConstant.laptopImage,
     ImageConstant.laptopImage,
     ImageConstant.laptopImage

@@ -27,26 +27,26 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           toolbarHeight: 80,
         ),
-        drawer: CustomDrawer(),
+        // drawer: CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Row(
-              //   children: [
-              //     IconButton(
-              //       icon: Icon(Icons.menu),
-              //       onPressed: () {
-              //         Scaffold.of(context).openDrawer();
-              //       },
-              //     ),
-              //     Expanded(
-              //         child: TextField(
-              //       decoration: InputDecoration(),
-              //     )),
-              //     SvgPicture.asset(openCart),
-              //   ],
-              // ),
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.menu),
+                    onPressed: () {
+                      // Scaffold.hasDrawer()
+                    },
+                  ),
+                  Expanded(
+                      child: TextField(
+                    decoration: InputDecoration(),
+                  )),
+                  SvgPicture.asset(openCart),
+                ],
+              ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
                 child: Column(

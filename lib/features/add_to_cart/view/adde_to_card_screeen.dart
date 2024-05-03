@@ -115,27 +115,6 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                           )
                         ],
                       ),
-                      DropdownButton(
-                        // Initial Value
-                        value: dropdownvalue,
-
-                        // Down Arrow Icon
-                        icon: const Icon(Icons.keyboard_arrow_down),
-
-                        // Array list of items
-                        items: items.map((String items) {
-                          return DropdownMenuItem(
-                            value: items,
-                            child: Text(items),
-                          );
-                        }).toList(),
-
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            dropdownvalue = newValue!;
-                          });
-                        },
-                      ),
                       GeneralTextButton(
                         // width: MediaQuery.of(context).size.width / 1.9,
                         marginH: 0,
