@@ -57,16 +57,20 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   Widget build(BuildContext context) {
     return GenericSafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 247, 246, 246),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        backgroundColor: const Color(0xffF6F1F1),
+        floatingActionButtonLocation:
+            FloatingActionButtonLocation.miniCenterDocked,
         floatingActionButton: Container(
-          padding: EdgeInsets.all(20.h),
+          height: 60.h,
+          // padding: EdgeInsets.all(20.h),
+          padding: EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.h),
           decoration: BoxDecoration(
               shape: BoxShape.circle,
-              border: Border.all(width: 3.w, color: Colors.white),
+              border: Border.all(width: 2.w, color: Colors.white),
               color: const Color.fromARGB(255, 238, 234, 234)),
-          child: Icon(
+          child: const Icon(
             Icons.qr_code_scanner_rounded,
+            color: Colors.red,
           ),
           // elevation: 3.0,
         ),
@@ -79,7 +83,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
               topRight: Radius.circular(35.r),
             ),
             child: SizedBox(
-              height: 80.h,
+              height: 60.h,
               child: BottomNavigationBar(
                 backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                 type: BottomNavigationBarType.fixed,

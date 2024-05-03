@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
-import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/widgets/banner_widget.dart';
 import 'package:smartbazar/features/widgets/brand_bazar_widget.dart';
 import 'package:smartbazar/features/widgets/custom_drawer_widget.dart';
@@ -18,37 +17,91 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return GenericSafeArea(
       color: Colors.white,
       child: Scaffold(
-        backgroundColor: Colors.white,
+        key: _key,
+        backgroundColor: const Color(0xffF6F1F1),
         appBar: AppBar(
-          toolbarHeight: 80,
+          toolbarHeight: 85.h,
+          leadingWidth: 30.h,
+          titleSpacing: 5,
+          automaticallyImplyLeading: false,
+          leading: IconButton(
+            icon: SvgPicture.asset(drawerIcon),
+            onPressed: () {
+              _key.currentState!.openDrawer();
+            },
+          ),
+          title: Row(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 35.h,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'search...',
+                        prefixIconConstraints: BoxConstraints(minWidth: 30),
+                        hintStyle: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xffBFBFBF)),
+                        prefixIcon: Padding(
+                          padding: EdgeInsets.only(top: 8.h, left: 5.w),
+                          child: Icon(
+                            Icons.search,
+                            size: 20.sp,
+                          ),
+                        ),
+                        suffixIcon: Container(
+                          width: 70.w,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(25.r),
+                                topRight: Radius.circular(25.r)),
+                            color: Color(0xff362677),
+                          ),
+                          child: Icon(
+                            Icons.search,
+                            size: 25,
+                            weight: 25,
+                            color: Colors.white,
+                          ),
+                        ),
+                        contentPadding: EdgeInsets.zero,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30.r))),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10.w,
+              ),
+              Container(
+                height: 30.h,
+                width: 30.h,
+                padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      width: 1.w,
+                    )),
+                child: SvgPicture.asset(openCart),
+              ),
+            ],
+          ),
         ),
-        // drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(Icons.menu),
-                    onPressed: () {
-                      // Scaffold.hasDrawer()
-                    },
-                  ),
-                  Expanded(
-                      child: TextField(
-                    decoration: InputDecoration(),
-                  )),
-                  SvgPicture.asset(openCart),
-                ],
-              ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 5.h),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -60,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(30.r),
                             topRight: Radius.circular(30.r)),
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
