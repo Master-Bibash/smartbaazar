@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/message/view/message_view_screen.dart';
+import 'package:smartbazar/features/my_order/view/my_order_screen.dart';
 import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
 import 'package:smartbazar/features/vendor_details/view/vendor_details_screen.dart';
 import 'package:smartbazar/features/view/home_screen.dart';
@@ -42,7 +43,8 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   List _pages = [
     HomeScreen(),
     MessageViewScreen(),
-    OrderDetailsScreen(),
+    // OrderDetailsScreen(),
+    MyOrderScreen(),
     VendroDetailsScreen(),
     Center(
       child: Text("pppp"),

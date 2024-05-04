@@ -49,68 +49,35 @@ class ProceesToPayScreen extends StatelessWidget {
               thickness: 2.w,
               color: const Color(0xffD9D9D9),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 16.w),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Particular',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xff36383C)),
-                      ),
-                      Text(
-                        'Acer Aspire 5 A515-56-32DK',
-                        style: TextStyle(
-                            fontSize: 14.sp,
-                            fontWeight: FontWeight.w500,
-                            color: const Color(0xff36383C)),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 9.h,
-                  ),
-                  const PayementDetailsWidget(
-                    title: 'Quantity',
-                    description: '1',
-                  ),
-                  SizedBox(
-                    height: 9.h,
-                  ),
-                  const PayementDetailsWidget(
-                    title: 'Rate',
-                    description: 'Rs. 60,000',
-                  ),
-                  SizedBox(
-                    height: 9.h,
-                  ),
-                  const PayementDetailsWidget(
-                    title: 'Total',
-                    description: 'Rs. 60,000',
-                    textStyle: TextStyle(fontWeight: FontWeight.w700),
-                  ),
-                  SizedBox(
-                    height: 9.h,
-                  ),
-                  const PayementDetailsWidget(
-                    title: 'Shipping Charge',
-                    description: 'Rs. 200',
-                  ),
-                  SizedBox(
-                    height: 9.h,
-                  ),
-                  const PayementDetailsWidget(
-                    title: 'Grand Total',
-                    description: 'Rs. 60,200',
-                    textStyle: TextStyle(fontWeight: FontWeight.w700),
-                  )
-                ],
-              ),
+            const Column(
+              children: [
+                PayementDetailsWidget(
+                  title: 'Particular',
+                  description: 'Acer Aspire 5 A515-56-32DK',
+                ),
+                PayementDetailsWidget(
+                  title: 'Quantity',
+                  description: '1',
+                ),
+                PayementDetailsWidget(
+                  title: 'Rate',
+                  description: 'Rs. 60,000',
+                ),
+                PayementDetailsWidget(
+                  title: 'Total',
+                  description: 'Rs. 60,000',
+                  textStyle: TextStyle(fontWeight: FontWeight.w700),
+                ),
+                PayementDetailsWidget(
+                  title: 'Shipping Charge',
+                  description: 'Rs. 200',
+                ),
+                PayementDetailsWidget(
+                  title: 'Grand Total',
+                  description: 'Rs. 60,200',
+                  textStyle: TextStyle(fontWeight: FontWeight.w700),
+                )
+              ],
             ),
             SizedBox(
               height: 15.h,
@@ -150,6 +117,7 @@ class ProceesToPayScreen extends StatelessWidget {
                   GeneralTextButton(
                       marginH: 0,
                       height: 38.h,
+                      width: MediaQuery.of(context).size.width / 2.5,
                       isSmallText: true,
                       fgColor: Colors.white,
                       bgColor: const Color(0xff362677),
@@ -176,26 +144,29 @@ class PayementDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: textStyle ??
-              TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xff36383C)),
-        ),
-        Text(
-          description,
-          style: textStyle ??
-              TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xff36383C)),
-        )
-      ],
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 3.h, horizontal: 16.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: textStyle ??
+                TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: const Color(0xff36383C)),
+          ),
+          Text(
+            description,
+            style: textStyle ??
+                TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: const Color(0xff36383C)),
+          )
+        ],
+      ),
     );
   }
 }

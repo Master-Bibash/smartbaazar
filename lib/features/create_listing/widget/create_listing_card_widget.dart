@@ -4,12 +4,13 @@ import 'package:smartbazar/features/auth/widgets/custom_drop_down_widget.dart';
 
 class CreateListingCardWidget extends StatelessWidget {
   final Widget child;
-  const CreateListingCardWidget({super.key, required this.child});
+  final double? width;
+  const CreateListingCardWidget({super.key, required this.child, this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: width ?? MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.r),
         boxShadow: [

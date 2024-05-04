@@ -265,6 +265,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 height: 30.h,
               ),
               GeneralTextButton(
+                width: MediaQuery.of(context).size.width,
                 bgColor: Color(0xff362677),
                 fgColor: Colors.white,
                 title: 'Place Order',

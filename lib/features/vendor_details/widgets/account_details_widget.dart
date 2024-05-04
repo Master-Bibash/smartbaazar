@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 
@@ -16,7 +15,7 @@ class AccountDetailsWidget extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 18.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(width: 1, color: Color(0xffADADAD))),
+          border: Border.all(width: 1, color: const Color(0xffADADAD))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,7 +35,7 @@ class AccountDetailsWidget extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Divider(
+          const Divider(
             color: Color(0xffADADAD),
           ),
           Padding(
@@ -44,7 +43,7 @@ class AccountDetailsWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.person,
@@ -52,7 +51,7 @@ class AccountDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.2.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.call,
@@ -60,7 +59,7 @@ class AccountDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.2.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.mail,
@@ -68,7 +67,7 @@ class AccountDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.2.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.person_outline,
@@ -82,7 +81,7 @@ class AccountDetailsWidget extends StatelessWidget {
                   width: 100.w,
                   title: 'Update',
                   fgColor: Colors.white,
-                  bgColor: Color(0xff362677),
+                  bgColor: const Color(0xff362677),
                   isSmallText: true,
                 )
               ],

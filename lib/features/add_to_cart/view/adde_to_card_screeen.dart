@@ -32,7 +32,7 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
         backgroundColor: const Color(0xffF6F1F1),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.h),
+            padding: EdgeInsets.symmetric(vertical: 20.h),
             child: Column(
               children: [
                 Padding(
@@ -71,9 +71,6 @@ class _AddToCartScreenState extends State<AddToCartScreen> {
                 const Divider(
                   thickness: 2,
                   color: Color(0xffD9D9D9),
-                ),
-                SizedBox(
-                  height: 30.h,
                 ),
                 SizedBox(
                   height: 20,

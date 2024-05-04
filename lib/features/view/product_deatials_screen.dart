@@ -8,6 +8,7 @@ import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/add_to_cart/view/adde_to_card_screeen.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
+import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
 import 'package:smartbazar/features/widgets/item_description_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
@@ -171,40 +172,36 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 children: [
                                   const Text('NPR. 60,000'),
                                   const Spacer(),
-                                  Container(
-                                    padding: EdgeInsets.only(
-                                        left: 13.w,
-                                        right: 15.w,
-                                        top: 4.h,
-                                        bottom: 7.h),
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(30.r),
-                                        color: const Color(0xff362677)),
-                                    child: Column(
-                                      children: [
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (_) =>
-                                                        AddToCartScreen()));
-                                          },
-                                          child: Icon(
+                                  InkWell(
+                                    onTap: () {
+                                      CustomDialougeBox().addToCart(context);
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.only(
+                                          left: 13.w,
+                                          right: 15.w,
+                                          top: 4.h,
+                                          bottom: 7.h),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(30.r),
+                                          color: const Color(0xff362677)),
+                                      child: Column(
+                                        children: [
+                                          Icon(
                                             Icons.add,
                                             size: 15.h,
                                             color: Colors.white,
                                           ),
-                                        ),
-                                        Text(
-                                          'Add to cart',
-                                          style: TextStyle(
-                                              fontSize: 10.sp,
-                                              fontWeight: FontWeight.w700,
-                                              color: Colors.white),
-                                        )
-                                      ],
+                                          Text(
+                                            'Add to cart',
+                                            style: TextStyle(
+                                                fontSize: 10.sp,
+                                                fontWeight: FontWeight.w700,
+                                                color: Colors.white),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(
@@ -475,6 +472,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         ),
                         GeneralTextButton(
                             marginH: 1,
+                            width: MediaQuery.of(context).size.width,
                             prefixImage: ImageConstant.visitStore,
                             bgColor: const Color(0xff362677),
                             fgColor: Colors.white,
@@ -885,7 +883,7 @@ class ProductTagListWidget extends StatelessWidget {
               GeneralTextButton(
                 marginH: 0,
                 isSmallText: true,
-                width: MediaQuery.of(context).size.width / 1,
+                width: MediaQuery.of(context).size.width / 3.5,
                 height: 28.h,
                 title: 'Laptop',
                 fgColor: const Color(0xff000000),
@@ -900,6 +898,7 @@ class ProductTagListWidget extends StatelessWidget {
                 marginH: 0,
                 isSmallText: true,
                 height: 28.h,
+                width: MediaQuery.of(context).size.width / 4,
                 title: 'Acer',
                 fgColor: const Color(0xff000000),
                 bgColor: const Color(0xff888888).withOpacity(0.13),
@@ -913,6 +912,7 @@ class ProductTagListWidget extends StatelessWidget {
                 marginH: 0,
                 isSmallText: true,
                 height: 28.h,
+                width: MediaQuery.of(context).size.width / 3,
                 title: 'Black Color',
                 bgColor: const Color(0xff888888).withOpacity(0.13),
                 fgColor: const Color(0xff000000),
@@ -1055,7 +1055,9 @@ class SimilarListingProduct extends StatelessWidget {
 }
 
 class CustomDialougeBox {
-  Future alertMessage(BuildContext context) async {
+  Future alertMessage(
+    BuildContext context,
+  ) async {
     return showDialog(
       context: context,
       builder: (_) => AlertDialog(
@@ -1083,6 +1085,77 @@ class CustomDialougeBox {
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w500,
                     color: Colors.black),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Container(
+                height: 40.h,
+                width: 40.w,
+                decoration: const BoxDecoration(
+                    color: Color(0xff362677), shape: BoxShape.circle),
+                child: const Icon(
+                  Icons.check,
+                  color: Colors.white,
+                  size: 24,
+                  weight: 50,
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Future addToCart(
+    BuildContext context,
+  ) async {
+    return showDialog(
+      context: context,
+      builder: (_) => AlertDialog(
+        backgroundColor: Colors.white,
+        title: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Sucessful!',
+                style: TextStyle(
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.w700,
+                    color: const Color(0xff362677)),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Text(
+                'Product added to the cart sucessfully!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => AddToCartScreen()));
+                },
+                child: Text(
+                  'View Cart',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black),
+                ),
               ),
               SizedBox(
                 height: 10.h,

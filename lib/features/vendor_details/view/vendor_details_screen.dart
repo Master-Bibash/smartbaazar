@@ -42,18 +42,18 @@ class VendroDetailsScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xff000000),
+                        color: const Color(0xff000000),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
-                      padding: EdgeInsets.all(9),
+                      padding: const EdgeInsets.all(9),
                       decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           border: Border.all(width: 2, color: Colors.black)),
                       child: SvgPicture.asset(
                         openCart,
-                        colorFilter: ColorFilter.mode(
+                        colorFilter: const ColorFilter.mode(
                             Color(0xff362677), BlendMode.srcIn),
                       ),
                     ),
@@ -62,23 +62,23 @@ class VendroDetailsScreen extends StatelessWidget {
                 SizedBox(
                   height: 30.h,
                 ),
-                PhotoAvatarContainerWidget(),
+                const PhotoAvatarContainerWidget(),
                 SizedBox(
                   height: 16.h,
                 ),
-                BackgroundImageDescriptionWidget(),
+                const BackgroundImageDescriptionWidget(),
                 SizedBox(
                   height: 16.h,
                 ),
-                AccountDetailsWidget(),
+                const AccountDetailsWidget(),
                 SizedBox(
                   height: 16.h,
                 ),
-                BankDetailsWidget(),
+                const BankDetailsWidget(),
                 SizedBox(
                   height: 16.h,
                 ),
-                VerifyAccountWidget(),
+                const VerifyAccountWidget(),
                 SizedBox(
                   height: 16.h,
                 ),
@@ -87,7 +87,8 @@ class VendroDetailsScreen extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 18.w),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.r),
-                      border: Border.all(width: 1, color: Color(0xffADADAD))),
+                      border:
+                          Border.all(width: 1, color: const Color(0xffADADAD))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -107,7 +108,7 @@ class VendroDetailsScreen extends StatelessWidget {
                       SizedBox(
                         height: 10.h,
                       ),
-                      Divider(
+                      const Divider(
                         color: Color(0xffADADAD),
                       ),
                       Padding(
@@ -116,7 +117,7 @@ class VendroDetailsScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            CustomTextFieldWidget(
+                            const CustomTextFieldWidget(
                                 suffixIcon: Icon(
                                   Icons.visibility,
                                   color: Color(0xffADADAD),
@@ -128,7 +129,7 @@ class VendroDetailsScreen extends StatelessWidget {
                             SizedBox(
                               height: 10.2.h,
                             ),
-                            CustomTextFieldWidget(
+                            const CustomTextFieldWidget(
                                 suffixIcon: Icon(
                                   Icons.visibility,
                                   color: Color(0xffADADAD),
@@ -150,13 +151,13 @@ class VendroDetailsScreen extends StatelessWidget {
                                     children: <Widget>[
                                       Checkbox(
                                           value: true,
-                                          activeColor: Color(0xff362677),
+                                          activeColor: const Color(0xff362677),
                                           onChanged: (newValue) {
                                             // setState(() {
                                             //   checkBoxValue = newValue;
                                             // });
                                           }),
-                                      Expanded(
+                                      const Expanded(
                                         child: Text(
                                             'I have read and agree to the  Terms & Condition'),
                                       )
@@ -167,13 +168,13 @@ class VendroDetailsScreen extends StatelessWidget {
                                     children: <Widget>[
                                       Checkbox(
                                           value: false,
-                                          activeColor: Color(0xff362677),
+                                          activeColor: const Color(0xff362677),
                                           onChanged: (newValue) {
                                             // setState(() {
                                             //   checkBoxValue = newValue;
                                             // });
                                           }),
-                                      Expanded(
+                                      const Expanded(
                                         child: Text(
                                             'I accept to recive marketing emails, sms, notification'),
                                       )
@@ -188,14 +189,14 @@ class VendroDetailsScreen extends StatelessWidget {
                                     width: 100.w,
                                     title: 'Update',
                                     fgColor: Colors.white,
-                                    bgColor: Color(0xff362677),
+                                    bgColor: const Color(0xff362677),
                                     isSmallText: true,
                                     onPressed: () {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                               builder: (_) =>
-                                                  MySubscriptionScreen()));
+                                                  const MySubscriptionScreen()));
                                     },
                                   )
                                 ],
@@ -230,7 +231,7 @@ class VerifyAccountWidget extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 18.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(width: 1, color: Color(0xffADADAD))),
+          border: Border.all(width: 1, color: const Color(0xffADADAD))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -250,7 +251,7 @@ class VerifyAccountWidget extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Divider(
+          const Divider(
             color: Color(0xffADADAD),
           ),
           Padding(
@@ -258,7 +259,7 @@ class VerifyAccountWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     VerifyAccountPhotoContainer(),
@@ -275,7 +276,7 @@ class VerifyAccountWidget extends StatelessWidget {
                   width: 100.w,
                   title: 'Update',
                   fgColor: Colors.white,
-                  bgColor: Color(0xff362677),
+                  bgColor: const Color(0xff362677),
                   isSmallText: true,
                 )
               ],
@@ -301,13 +302,13 @@ class VerifyAccountPhotoContainer extends StatelessWidget {
           width: 95.w,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8.r),
-              border: Border.all(width: 1.w, color: Color(0xffADADAD))),
+              border: Border.all(width: 1.w, color: const Color(0xffADADAD))),
           child: Center(
             child: Text(
               'Add Photo',
               style: TextStyle(
                   fontSize: 10.sp,
-                  color: Color(0xff888888),
+                  color: const Color(0xff888888),
                   fontWeight: FontWeight.w700),
             ),
           ),
@@ -318,7 +319,7 @@ class VerifyAccountPhotoContainer extends StatelessWidget {
         Text(
           'PAN',
           style: TextStyle(
-              color: Color(0xff888888),
+              color: const Color(0xff888888),
               fontSize: 10.sp,
               fontWeight: FontWeight.w700),
         )
