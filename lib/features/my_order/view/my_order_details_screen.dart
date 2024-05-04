@@ -4,6 +4,7 @@ import 'package:smartbazar/features/add_to_cart/view/adde_to_card_screeen.dart';
 import 'package:smartbazar/features/auth/widgets/custom_drop_down_widget.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/create_listing/widget/create_listing_card_widget.dart';
+import 'package:smartbazar/features/my_order/view/my_return_screen.dart';
 import 'package:smartbazar/features/proceed_pay/view/proceed_to_pay_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
@@ -140,6 +141,8 @@ class _MyOrderDetailsScreenState extends State<MyOrderDetailsScreen> {
                               context,
                               title: 'Status',
                               heading: 'Track Order',
+                              buttonTitle: 'UnderStood',
+                              callback: () {},
                               widget: Column(
                                 children: [
                                   Row(
@@ -215,6 +218,11 @@ class _MyOrderDetailsScreenState extends State<MyOrderDetailsScreen> {
                           title: 'Return',
                           onPressed: () {
                             CustomDialougeBox().orderDetailDialouge(context,
+                                buttonTitle: 'Submit',
+                                callback: () => Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (_) => MyReturnScreen())),
                                 widget: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -409,6 +417,8 @@ class CustomDialougeBox {
   Future orderDetailDialouge(BuildContext context,
       {required Widget widget,
       required String title,
+      required String buttonTitle,
+      required VoidCallback callback,
       required String heading}) async {
     return showDialog(
       context: context,
@@ -460,10 +470,14 @@ class CustomDialougeBox {
               height: 10.h,
             ),
             GeneralTextButton(
-                bgColor: Color(0xff362677),
-                fgColor: Colors.white,
-                width: MediaQuery.of(context).size.width,
-                title: 'Understood'),
+              bgColor: Color(0xff362677),
+              fgColor: Colors.white,
+              width: MediaQuery.of(context).size.width,
+              title: buttonTitle,
+              onPressed: () {
+                callback();
+              },
+            ),
             SizedBox(
               height: 10.h,
             ),

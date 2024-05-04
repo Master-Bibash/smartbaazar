@@ -50,13 +50,13 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                     ),
                     CircleAvatar(
                       radius: 12.r,
-                      backgroundColor: Color(0xffADADAD),
-                      child: Text(
+                      backgroundColor: const Color(0xffADADAD),
+                      child: const Text(
                         'i',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     InkWell(
                       onTap: () {
                         Navigator.pop(context);
@@ -64,7 +64,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                       child: Text(
                         'Go Back',
                         style: TextStyle(
-                            color: Color(0xff888888),
+                            color: const Color(0xff888888),
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w700),
                       ),
@@ -79,7 +79,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                       EdgeInsets.symmetric(vertical: 11.h, horizontal: 14.w),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.r),
-                      color: Color(0xff362677)),
+                      color: const Color(0xff362677)),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -137,13 +137,13 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           Text(
                             ' *',
                             style: TextStyle(
-                                color: Color(0xffD33636),
+                                color: const Color(0xffD33636),
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14.sp),
                           )
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       CustomDropdownButton(
                         items: ['Used', 'Item 2', 'Item 3'],
                         dropdownvalue: dropdownvalue,
@@ -176,13 +176,13 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           Text(
                             ' *',
                             style: TextStyle(
-                                color: Color(0xffD33636),
+                                color: const Color(0xffD33636),
                                 fontWeight: FontWeight.w500,
                                 fontSize: 14.sp),
                           )
                         ],
                       ),
-                      Spacer(),
+                      const Spacer(),
                       CustomDropdownButton(
                         items: ['Used', 'Item 2', 'Item 3'],
                         dropdownvalue: dropdownvalue,
@@ -214,13 +214,13 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                         Text(
                           ' *',
                           style: TextStyle(
-                              color: Color(0xffD33636),
+                              color: const Color(0xffD33636),
                               fontWeight: FontWeight.w500,
                               fontSize: 14.sp),
                         )
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration.collapsed(
@@ -228,7 +228,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                             hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
-                                color: Color(0xffADADAD))),
+                                color: const Color(0xffADADAD))),
                       ),
                     ),
                   ],
@@ -253,7 +253,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                         Text(
                           ' *',
                           style: TextStyle(
-                              color: Color(0xffD33636),
+                              color: const Color(0xffD33636),
                               fontWeight: FontWeight.w500,
                               fontSize: 14.sp),
                         )
@@ -268,7 +268,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           hintStyle: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 16.sp,
-                              color: Color(0xffADADAD))),
+                              color: const Color(0xffADADAD))),
                     ),
                     SizedBox(
                       height: 10.h,
@@ -298,7 +298,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                             hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
-                                color: Color(0xffADADAD))),
+                                color: const Color(0xffADADAD))),
                       ),
                     ),
                   ],
@@ -322,7 +322,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           fontWeight: FontWeight.w600,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     CustomCheckbox(
                       value: _isChecked,
                       onChanged: (bool newValue) {
@@ -339,7 +339,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                       style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w500,
-                          color: Color(
+                          color: const Color(
                             (0xff888888),
                           )),
                     )
@@ -371,13 +371,13 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                         Text(
                           ' *',
                           style: TextStyle(
-                              color: Color(0xffD33636),
+                              color: const Color(0xffD33636),
                               fontWeight: FontWeight.w500,
                               fontSize: 14.sp),
                         )
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration.collapsed(
@@ -385,7 +385,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                             hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
-                                color: Color(0xffADADAD))),
+                                color: const Color(0xffADADAD))),
                       ),
                     ),
                   ],
@@ -416,14 +416,14 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                         Text(
                           ' *',
                           style: TextStyle(
-                              color: Color(0xffD33636),
+                              color: const Color(0xffD33636),
                               fontWeight: FontWeight.w500,
                               fontSize: 14.sp),
                         )
                       ],
                     ),
 
-                    Spacer(),
+                    const Spacer(),
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration.collapsed(
@@ -431,7 +431,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                             hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
-                                color: Color(0xffADADAD))),
+                                color: const Color(0xffADADAD))),
                       ),
                     ),
                   ],
@@ -449,7 +449,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           fontSize: 16.sp,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration.collapsed(
@@ -457,7 +457,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                             hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
-                                color: Color(0xffADADAD))),
+                                color: const Color(0xffADADAD))),
                       ),
                     ),
                   ],
@@ -475,7 +475,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           fontSize: 16.sp,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration.collapsed(
@@ -483,7 +483,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                             hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
-                                color: Color(0xffADADAD))),
+                                color: const Color(0xffADADAD))),
                       ),
                     ),
                   ],
@@ -501,7 +501,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           fontSize: 16.sp,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Expanded(
                       child: TextField(
                         decoration: InputDecoration.collapsed(
@@ -509,7 +509,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                             hintStyle: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16.sp,
-                                color: Color(0xffADADAD))),
+                                color: const Color(0xffADADAD))),
                       ),
                     ),
                   ],
@@ -528,16 +528,16 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                           fontSize: 16.sp,
                           color: Colors.black),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
                       padding:
                           EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
                       decoration: BoxDecoration(
-                          color: Color(0xffEDECEC),
+                          color: const Color(0xffEDECEC),
                           borderRadius: BorderRadius.circular(10.r),
-                          border:
-                              Border.all(width: 1.w, color: Color(0xff888888))),
-                      child: Row(
+                          border: Border.all(
+                              width: 1.w, color: const Color(0xff888888))),
+                      child: const Row(
                         children: [
                           Icon(
                             Icons.close,
@@ -554,11 +554,11 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
                       decoration: BoxDecoration(
-                          color: Color(0xffEDECEC),
+                          color: const Color(0xffEDECEC),
                           borderRadius: BorderRadius.circular(10.r),
-                          border:
-                              Border.all(width: 1.w, color: Color(0xff888888))),
-                      child: Row(
+                          border: Border.all(
+                              width: 1.w, color: const Color(0xff888888))),
+                      child: const Row(
                         children: [
                           Icon(
                             Icons.close,
@@ -575,11 +575,11 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                       padding:
                           EdgeInsets.symmetric(horizontal: 5.w, vertical: 3.h),
                       decoration: BoxDecoration(
-                          color: Color(0xffEDECEC),
+                          color: const Color(0xffEDECEC),
                           borderRadius: BorderRadius.circular(10.r),
-                          border:
-                              Border.all(width: 1.w, color: Color(0xff888888))),
-                      child: Row(
+                          border: Border.all(
+                              width: 1.w, color: const Color(0xff888888))),
+                      child: const Row(
                         children: [
                           Icon(
                             Icons.close,
@@ -597,7 +597,7 @@ class _CreateNewListinScreenState extends State<CreateNewListinScreen> {
                 SizedBox(
                   height: 15.h,
                 ),
-                SellerInformationWidget(),
+                const SellerInformationWidget(),
               ],
             ),
           ),
@@ -645,7 +645,7 @@ class SellerInformationWidget extends StatelessWidget {
                   fontSize: 16.sp,
                   color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
               child: TextField(
                 decoration: InputDecoration.collapsed(
@@ -653,7 +653,7 @@ class SellerInformationWidget extends StatelessWidget {
                     hintStyle: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16.sp,
-                        color: Color(0xffADADAD))),
+                        color: const Color(0xffADADAD))),
               ),
             ),
           ],
@@ -671,7 +671,7 @@ class SellerInformationWidget extends StatelessWidget {
                   fontSize: 16.sp,
                   color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
               child: TextField(
                 decoration: InputDecoration.collapsed(
@@ -679,7 +679,7 @@ class SellerInformationWidget extends StatelessWidget {
                     hintStyle: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16.sp,
-                        color: Color(0xffADADAD))),
+                        color: const Color(0xffADADAD))),
               ),
             ),
           ],
@@ -697,7 +697,7 @@ class SellerInformationWidget extends StatelessWidget {
                   fontSize: 16.sp,
                   color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
               child: TextField(
                 decoration: InputDecoration.collapsed(
@@ -705,7 +705,7 @@ class SellerInformationWidget extends StatelessWidget {
                     hintStyle: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16.sp,
-                        color: Color(0xffADADAD))),
+                        color: const Color(0xffADADAD))),
               ),
             ),
             SizedBox(
@@ -714,7 +714,7 @@ class SellerInformationWidget extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
               decoration: BoxDecoration(
-                  color: Color(0xffEDECEC),
+                  color: const Color(0xffEDECEC),
                   borderRadius: BorderRadius.circular(10.r)),
               child: Column(
                 children: [
@@ -727,7 +727,7 @@ class SellerInformationWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w500,
-                      color: Color(0xff888888),
+                      color: const Color(0xff888888),
                     ),
                   )
                 ],
@@ -740,7 +740,7 @@ class SellerInformationWidget extends StatelessWidget {
         ),
         Row(
           children: [
-            Icon(Icons.camera_alt),
+            const Icon(Icons.camera_alt),
             SizedBox(
               width: 10.w,
             ),
@@ -756,14 +756,14 @@ class SellerInformationWidget extends StatelessWidget {
         SizedBox(
           height: 15.h,
         ),
-        SelectPhotFromFilesContainer(),
+        const SelectPhotFromFilesContainer(),
         Center(
           child: Text(
             'Add up to 6 pictures. Use real pictures of your products, not cataloges.',
             style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 10.sp,
-                color: Color(0xffADADAD)),
+                color: const Color(0xffADADAD)),
           ),
         ),
         SizedBox(
@@ -792,7 +792,7 @@ class SellerInformationWidget extends StatelessWidget {
           style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w700,
-              color: Color(0xff888888)),
+              color: const Color(0xff888888)),
         ),
         SizedBox(
           height: 8.h,
@@ -802,7 +802,7 @@ class SellerInformationWidget extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 10.sp,
-              color: Color(0xffADADAD)),
+              color: const Color(0xffADADAD)),
         ),
         SizedBox(
           height: 15.h,
@@ -817,7 +817,7 @@ class SellerInformationWidget extends StatelessWidget {
                   fontSize: 16.sp,
                   color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             Expanded(
               child: TextField(
                 decoration: InputDecoration.collapsed(
@@ -825,7 +825,7 @@ class SellerInformationWidget extends StatelessWidget {
                     hintStyle: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16.sp,
-                        color: Color(0xffADADAD))),
+                        color: const Color(0xffADADAD))),
               ),
             ),
           ],
@@ -838,7 +838,7 @@ class SellerInformationWidget extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 10.sp,
-              color: Color(0xffADADAD)),
+              color: const Color(0xffADADAD)),
         ),
         SizedBox(
           height: 10.h,
@@ -850,7 +850,7 @@ class SellerInformationWidget extends StatelessWidget {
           ),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.r),
-              color: Color(0xff362677)),
+              color: const Color(0xff362677)),
           child: Row(
             children: [
               Text(
@@ -880,7 +880,7 @@ class SellerInformationWidget extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 10.sp,
-              color: Color(0xffADADAD)),
+              color: const Color(0xffADADAD)),
         ),
         SizedBox(
           height: 30.h,
@@ -906,14 +906,14 @@ class SelectPhotFromFilesContainer extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 13.5.h),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10.r),
-            border: Border.all(width: 1.w, color: Color(0xffADADAD))),
+            border: Border.all(width: 1.w, color: const Color(0xffADADAD))),
         child: DottedBorder(
           borderType: BorderType.RRect,
           radius: Radius.circular(10.r),
           // padding: EdgeInsets.all(6),
           dashPattern: [2, 3],
           child: ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(12)),
+            borderRadius: const BorderRadius.all(Radius.circular(12)),
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 100.w, vertical: 55.h),
               height: 180.h,
@@ -925,7 +925,7 @@ class SelectPhotFromFilesContainer extends StatelessWidget {
                     'Click to select files',
                     style: TextStyle(
                         fontSize: 16.sp,
-                        color: Color(0xffADADAD),
+                        color: const Color(0xffADADAD),
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
@@ -937,12 +937,12 @@ class SelectPhotFromFilesContainer extends StatelessWidget {
                         EdgeInsets.symmetric(horizontal: 13.w, vertical: 9.h),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.r),
-                        border:
-                            Border.all(width: 1.w, color: Color(0xffADADAD))),
+                        border: Border.all(
+                            width: 1.w, color: const Color(0xffADADAD))),
                     child: Row(
                       // mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.open_in_browser_outlined),
+                        const Icon(Icons.open_in_browser_outlined),
                         SizedBox(
                           width: 2.w,
                         ),
@@ -993,7 +993,7 @@ class _ReturnPolicyCardWidgetState extends State<ReturnPolicyCardWidget> {
             ),
           ],
         ),
-        Spacer(),
+        const Spacer(),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

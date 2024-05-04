@@ -16,7 +16,7 @@ class BankDetailsWidget extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 18.w),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
-          border: Border.all(width: 1, color: Color(0xffADADAD))),
+          border: Border.all(width: 1, color: const Color(0xffADADAD))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -36,7 +36,7 @@ class BankDetailsWidget extends StatelessWidget {
           SizedBox(
             height: 10.h,
           ),
-          Divider(
+          const Divider(
             color: Color(0xffADADAD),
           ),
           Padding(
@@ -44,7 +44,7 @@ class BankDetailsWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.person,
@@ -52,7 +52,7 @@ class BankDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.2.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.call,
@@ -60,7 +60,7 @@ class BankDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.2.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.mail,
@@ -68,7 +68,7 @@ class BankDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.2.h,
                 ),
-                CustomTextFieldWidget(
+                const CustomTextFieldWidget(
                     fill: true,
                     fillColor: Color(0xffF3F3F3),
                     icon: Icons.person_outline,
@@ -82,14 +82,14 @@ class BankDetailsWidget extends StatelessWidget {
                     width: 95.w,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8.r),
-                        border:
-                            Border.all(width: 1.w, color: Color(0xffADADAD))),
+                        border: Border.all(
+                            width: 1.w, color: const Color(0xffADADAD))),
                     child: Center(
                       child: Text(
                         'Add Photo',
                         style: TextStyle(
                             fontSize: 10.sp,
-                            color: Color(0xff888888),
+                            color: const Color(0xff888888),
                             fontWeight: FontWeight.w700),
                       ),
                     ),
@@ -102,7 +102,7 @@ class BankDetailsWidget extends StatelessWidget {
                   padding: EdgeInsets.only(top: 6.h, left: 12.w, bottom: 7.h),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12.r),
-                      color: Color(0xffEDECEC)),
+                      color: const Color(0xffEDECEC)),
                   child: Row(
                     children: [
                       Text(
@@ -110,7 +110,7 @@ class BankDetailsWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 10.sp,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xff36383C)),
+                            color: const Color(0xff36383C)),
                       ),
                       SizedBox(
                         width: 7.w,
@@ -120,7 +120,7 @@ class BankDetailsWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w700,
-                            color: Color(0xffADADAD)),
+                            color: const Color(0xffADADAD)),
                       ),
                       SizedBox(
                         width: 11.w,
@@ -130,7 +130,7 @@ class BankDetailsWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 10.sp,
                             fontWeight: FontWeight.w400,
-                            color: Color(0xff36383C)),
+                            color: const Color(0xff36383C)),
                       ),
                     ],
                   ),
@@ -144,7 +144,7 @@ class BankDetailsWidget extends StatelessWidget {
                   width: 100.w,
                   title: 'Submit',
                   fgColor: Colors.white,
-                  bgColor: Color(0xff362677),
+                  bgColor: const Color(0xff362677),
                   isSmallText: true,
                 ),
                 SizedBox(
