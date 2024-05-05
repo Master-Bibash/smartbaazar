@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CustomTextFieldWidget extends StatelessWidget {
+class CustomTextFieldWidget extends StatefulWidget {
   final IconData icon;
   final String hintText;
   final Widget? suffixIcon;
   final Color? fillColor;
   final bool? fill;
   final bool? readOnly;
+  final Function? onChanged;
+  final TextEditingController? controller;
+
   const CustomTextFieldWidget(
       {super.key,
       required this.icon,
@@ -15,19 +18,30 @@ class CustomTextFieldWidget extends StatelessWidget {
       this.suffixIcon,
       this.fill,
       this.fillColor,
-      this.readOnly});
+      this.readOnly,
+      this.onChanged,
+      this.controller});
 
+  @override
+  State<CustomTextFieldWidget> createState() => _CustomTextFieldWidgetState();
+}
+
+class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      readOnly: readOnly ?? false,
+      readOnly: widget.readOnly ?? false,
+      controller: widget.controller,
+      onChanged: (newValue) {
+        widget.onChanged?.call(newValue);
+      },
       decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(vertical: 10),
+          contentPadding: const EdgeInsets.symmetric(vertical: 10),
           border: OutlineInputBorder(
               borderSide: BorderSide.none,
               borderRadius: BorderRadius.circular(10.r)),
-          filled: fill,
-          fillColor: fillColor,
+          filled: widget.fill,
+          fillColor: widget.fillColor,
           prefixIcon: Padding(
             padding:
                 EdgeInsets.only(right: 11.w, left: 10.w, top: 5.h, bottom: 5.h),
@@ -41,13 +55,13 @@ class CustomTextFieldWidget extends StatelessWidget {
                     0xffAEC5FF,
                   )),
               child: Icon(
-                icon,
+                widget.icon,
                 color: Color(0xff362677),
               ),
             ),
           ),
-          suffixIcon: suffixIcon,
-          hintText: hintText,
+          suffixIcon: widget.suffixIcon,
+          hintText: widget.hintText,
           hintStyle: TextStyle(color: Color(0xffADADAD))),
     );
   }

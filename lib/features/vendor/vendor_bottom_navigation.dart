@@ -3,57 +3,31 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/message/view/message_view_screen.dart';
-import 'package:smartbazar/features/my_order/view/my_order_screen.dart';
-import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
 import 'package:smartbazar/features/vendor/view/disputes_screen.dart';
 import 'package:smartbazar/features/vendor/view/vendor_home_screen.dart';
 import 'package:smartbazar/features/vendor_details/view/vendor_details_screen.dart';
-import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
-// class BottomNavigationScreen extends StatefulWidget {
-//   const BottomNavigationScreen({super.key});
-
-//   @override
-//   State<BottomNavigationScreen> createState() => _BottomNavigationScreenState();
-// }
-
-// class _BottomNavigationScreenState extends State<BottomNavigationBar> {
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('BottomNavigationBar Demo'),
-//       ),
-//       body: _pages.elementAt(_selectedTab),
-//       bottomNavigationBar: BottomNavigationBar(items: items),
-//     );
-//   }
-// }
-
-class BottomNavigationScreen extends StatefulWidget {
-  const BottomNavigationScreen({super.key});
+class VendorBottomNavigation extends StatefulWidget {
+  const VendorBottomNavigation({super.key});
 
   @override
-  State<BottomNavigationScreen> createState() => _BottomNavigationScreenState();
+  State<VendorBottomNavigation> createState() => _VendorBottomNavigationState();
 }
 
-class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
-  int _selectedTab = 0;
-
+class _VendorBottomNavigationState extends State<VendorBottomNavigation> {
   List _pages = [
-    HomeScreen(),
-    // VendorHomeScreen(),  if vendor login show vendor home screen
+    VendorHomeScreen(),
+    // if vendor login show vendor home screen
     MessageViewScreen(),
-    MyOrderScreen(),
-    //if  vendor login show disputes screen
-    // DisputesScreen(),
+    DisputesScreen(),
     VendroDetailsScreen(),
+
     Center(
       child: Text("pppp"),
     ),
   ];
+  int _selectedTab = 0;
 
   _changeTab(int index) {
     setState(() {
