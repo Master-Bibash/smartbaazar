@@ -5,6 +5,7 @@ import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/message/view/message_view_screen.dart';
 import 'package:smartbazar/features/my_order/view/my_order_screen.dart';
 import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
+import 'package:smartbazar/features/vendor/view/disputes_screen.dart';
 import 'package:smartbazar/features/vendor/view/vendor_home_screen.dart';
 import 'package:smartbazar/features/vendor_details/view/vendor_details_screen.dart';
 import 'package:smartbazar/features/view/home_screen.dart';
@@ -42,12 +43,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   int _selectedTab = 0;
 
   List _pages = [
-    // HomeScreen(),
-    VendorHomeScreen(),
+    HomeScreen(),
+    // VendorHomeScreen(),  if vendor login show vendor home screen
     MessageViewScreen(),
-    // OrderDetailsScreen(),
     MyOrderScreen(),
-    VendroDetailsScreen(),
+    // DisputesScreen(),
+    // if  vendor login show disputes screen
     Center(
       child: Text("pppp"),
     ),
