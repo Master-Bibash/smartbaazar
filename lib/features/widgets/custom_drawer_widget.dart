@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/create_listing/view/create_new_listing_scree.dart';
+import 'package:smartbazar/features/view/all_product_type_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -43,7 +44,11 @@ class CustomDrawer extends StatelessWidget {
                       fontWeight: FontWeight.w700,
                       color: Color(0xff362677)),
                 ),
-                Icon(Icons.clear)
+                InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.clear))
               ],
             ),
             SizedBox(
@@ -52,6 +57,13 @@ class CustomDrawer extends StatelessWidget {
             Expanded(
               child: DrawerItemWidget(
                 listOfDrawerItem: drawerList,
+                onTap: (ttile) {
+                  switch (ttile) {
+                    case 'Products':
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => AllProductType()));
+                  }
+                },
               ),
             ),
             Divider(
@@ -100,45 +112,52 @@ class CustomDrawer extends StatelessWidget {
 
 class DrawerItemWidget extends StatelessWidget {
   final List<Map<String, dynamic>> listOfDrawerItem;
-  const DrawerItemWidget({super.key, required this.listOfDrawerItem});
+  final Function(String) onTap;
+  const DrawerItemWidget(
+      {super.key, required this.listOfDrawerItem, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
-      itemBuilder: (BuildContext context, int index) => Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            children: [
-              SvgPicture.asset(
-                listOfDrawerItem[index]['imageIcon'],
-                colorFilter:
-                    ColorFilter.mode(Color(0xff000000), BlendMode.srcIn),
-              ),
-              SizedBox(
-                width: 12.w,
-              ),
-              Text(
-                listOfDrawerItem[index]['title'],
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff000000),
+      itemBuilder: (BuildContext context, int index) => InkWell(
+        onTap: () {
+          onTap(listOfDrawerItem[index]['title']);
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              children: [
+                SvgPicture.asset(
+                  listOfDrawerItem[index]['imageIcon'],
+                  colorFilter:
+                      ColorFilter.mode(Color(0xff000000), BlendMode.srcIn),
                 ),
-              ),
-              Spacer(),
-              Row(
-                children: [
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 20,
+                SizedBox(
+                  width: 12.w,
+                ),
+                Text(
+                  listOfDrawerItem[index]['title'],
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff000000),
                   ),
-                ],
-              )
-            ],
-          ),
-        ],
+                ),
+                Spacer(),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.arrow_forward_ios,
+                      size: 20,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ],
+        ),
       ),
       separatorBuilder: (BuildContext context, int index) => SizedBox(
         height: 20.h,
