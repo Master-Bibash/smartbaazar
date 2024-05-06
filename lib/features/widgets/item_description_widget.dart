@@ -3,18 +3,25 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/view/product_deatials_screen.dart';
+import 'package:smartbazar/features/widgets/product_model.dart';
 
 class ItemDescriptionWidget extends StatelessWidget {
-  const ItemDescriptionWidget({
-    super.key,
-  });
+  // final String productName;
+  final Product product;
+  final Function(Product) onTap;
+  const ItemDescriptionWidget(
+      {super.key,
+      // required this.productName,
+      required this.product,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (_) => ProductDetailsScreen()));
+        // Navigator.push(context,
+        //     MaterialPageRoute(builder: (_) => const ProductDetailsScreen()));
+        onTap(product);
       },
       child: Container(
         height: 291.h,
@@ -41,7 +48,8 @@ class ItemDescriptionWidget extends StatelessWidget {
               height: 9.h,
             ),
             Text(
-              'Acer Aspire 5 A515-56-32DK Intel\n Core i3 11th Gen/15.6 FHD',
+              // 'Acer Aspire 5 A515-56-32DK Intel\n Core i3 11th Gen/15.6 FHD',
+              product.name,
               style: TextStyle(
                   fontSize: 10.sp,
                   color: Colors.black,

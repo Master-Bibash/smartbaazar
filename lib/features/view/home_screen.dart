@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/view/product_deatials_screen.dart';
 import 'package:smartbazar/features/widgets/banner_widget.dart';
 import 'package:smartbazar/features/widgets/brand_bazar_widget.dart';
 import 'package:smartbazar/features/widgets/custom_drawer_widget.dart';
 import 'package:smartbazar/features/widgets/item_description_widget.dart';
+import 'package:smartbazar/features/widgets/product_model.dart';
 import 'package:smartbazar/features/widgets/service_container_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
@@ -18,6 +20,42 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
+  List<Product> product = [
+    // Your list of products
+    Product(
+      name: 'Acer Aspire 5 A515-56-32DK Intel Core i3 11th Gen/15.6 FHD',
+    ),
+    Product(
+      name: 'Dell Aspire 5 A515-56-32DK Intel Core i3 11th Gen/15.6 FHD',
+    ),
+    Product(
+      name: 'Acer Aspire 5 A515-56-32DK Intel Core i3 11th Gen/15.6 FHD',
+    ),
+    Product(
+      name: 'Leneov Aspire 5 A515-56-32DK Intel Core i3 11th Gen/15.6 FHD',
+    ),
+  ];
+  List<Product> filteredProducts = [];
+
+  @override
+  void initState() {
+    filteredProducts = product;
+    super.initState();
+  }
+
+  void filterProducts(String query) {
+    setState(() {
+      if (query.isNotEmpty) {
+        filteredProducts = product
+            .where((product) =>
+                product.name.toLowerCase().contains(query.toLowerCase()))
+            .toList();
+      } else {
+        filteredProducts = product;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return GenericSafeArea(
@@ -43,6 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: SizedBox(
                   height: 33.h,
                   child: TextFormField(
+                    onChanged: (query) {
+                      filterProducts(query);
+                    },
                     decoration: InputDecoration(
                         hintText: 'Search...',
                         prefixIconConstraints: BoxConstraints(minWidth: 40.w),
@@ -183,9 +224,22 @@ class _HomeScreenState extends State<HomeScreen> {
                         scrollDirection: Axis.horizontal,
                         padding: EdgeInsets.only(left: 5.w),
                         shrinkWrap: true,
-                        itemCount: 5,
-                        itemBuilder: (context, index) =>
-                            ItemDescriptionWidget(),
+                        itemCount: filteredProducts.length,
+                        itemBuilder: (context, index) {
+                          final product = filteredProducts[index];
+                          return ItemDescriptionWidget(
+                            product: product,
+                            onTap: (product) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => ProductDetailsScreen(
+                                            product: product,
+                                          )));
+                            },
+                            // productName: product.name,
+                          );
+                        },
                         separatorBuilder: (BuildContext context, int index) {
                           return SizedBox(
                             width: 12.h,
@@ -199,7 +253,7 @@ class _HomeScreenState extends State<HomeScreen> {
               SizedBox(
                 height: 20.h,
               ),
-              BannerWidget(),
+              const BannerWidget(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 20.h),
                 child: Column(
@@ -220,9 +274,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         scrollDirection: Axis.horizontal,
                         padding: EdgeInsets.only(left: 5.w),
                         shrinkWrap: true,
-                        itemCount: 5,
-                        itemBuilder: (context, index) =>
-                            ItemDescriptionWidget(),
+                        itemCount: filteredProducts.length,
+                        itemBuilder: (context, index) => ItemDescriptionWidget(
+                          product: filteredProducts[index],
+                          onTap: (p) {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) =>
+                                        ProductDetailsScreen(product: p)));
+                          },
+                        ),
                         separatorBuilder: (BuildContext context, int index) {
                           return SizedBox(
                             width: 12.h,

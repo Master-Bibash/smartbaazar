@@ -115,11 +115,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                     const VendorBottomNavigation()));
                       }
                     }
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const BottomNavigationScreen()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) =>
+                    //             const BottomNavigationScreen()));
                   },
                 ),
                 SizedBox(

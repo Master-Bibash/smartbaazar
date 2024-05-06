@@ -10,10 +10,12 @@ import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart'
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
 import 'package:smartbazar/features/order_details/view/order_details_screen.dart';
 import 'package:smartbazar/features/widgets/item_description_widget.dart';
+import 'package:smartbazar/features/widgets/product_model.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen({super.key});
+  final Product product;
+  const ProductDetailsScreen({super.key, required this.product});
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
@@ -42,7 +44,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(Icons.arrow_back_ios),
+                      InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(Icons.arrow_back_ios)),
                       Container(
                           padding: EdgeInsets.all(12.h),
                           decoration: const BoxDecoration(
@@ -128,7 +134,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Acer Aspire 5 A515-56-32DK Intel',
+                                widget.product.name,
                                 style: TextStyle(
                                     fontSize: 20.sp,
                                     fontWeight: FontWeight.w700),
@@ -1032,20 +1038,20 @@ class SimilarListingProduct extends StatelessWidget {
           ),
           Row(
             children: [
-              const ItemDescriptionWidget(),
+              // const ItemDescriptionWidget(),
               SizedBox(
                 width: 8.w,
               ),
-              const ItemDescriptionWidget(),
+              // const ItemDescriptionWidget(),
             ],
           ),
           Row(
             children: [
-              const ItemDescriptionWidget(),
+              // const ItemDescriptionWidget(),
               SizedBox(
                 width: 8.w,
               ),
-              const ItemDescriptionWidget(),
+              // const ItemDescriptionWidget(),
             ],
           ),
         ],
