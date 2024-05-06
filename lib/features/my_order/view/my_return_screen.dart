@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/add_to_cart/view/adde_to_card_screeen.dart';
+import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
 import 'package:smartbazar/features/my_order/view/my_order_details_screen.dart';
+import 'package:smartbazar/features/pending_approval/pending_approval.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class MyReturnScreen extends StatelessWidget {
@@ -119,6 +121,22 @@ class MyReturnScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 25.h,
+              ),
+              GeneralTextButton(
+                // marginH: 0,
+                width: MediaQuery.of(context).size.width,
+                title: 'Pending Approval',
+                fgColor: Colors.white,
+                bgColor: Color(0xff362677),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => PendingApprovalScreen()));
+                },
+              )
             ],
           ),
         ),
