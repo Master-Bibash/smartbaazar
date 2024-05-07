@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:smartbazar/constant/image_constant.dart';
-import 'package:smartbazar/features/add_to_cart/view/adde_to_card_screeen.dart';
-import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
-import 'package:smartbazar/features/my_order/view/my_order_details_screen.dart';
+import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
+import 'package:smartbazar/features/sponsorship/view/sponsorship_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class OnlineTransactionRecordScreen extends StatelessWidget {
@@ -31,7 +27,7 @@ class OnlineTransactionRecordScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.money),
+                    const Icon(Icons.money),
                     SizedBox(
                       width: 8.w,
                     ),
@@ -67,7 +63,7 @@ class OnlineTransactionRecordScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      TabBar(
+                      const TabBar(
                         tabAlignment: TabAlignment.start,
                         isScrollable: true,
                         dividerColor: Color(0xffD9D9D9),
@@ -85,7 +81,7 @@ class OnlineTransactionRecordScreen extends StatelessWidget {
                       ),
                       Expanded(
                         child: TabBarView(
-                          physics: ScrollPhysics(),
+                          physics: const ScrollPhysics(),
                           children: [
                             Padding(
                               padding: EdgeInsets.symmetric(vertical: 20.h),
@@ -93,14 +89,15 @@ class OnlineTransactionRecordScreen extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     ListView.separated(
-                                        physics: NeverScrollableScrollPhysics(),
+                                        physics:
+                                            const NeverScrollableScrollPhysics(),
                                         shrinkWrap: true,
                                         itemBuilder: (context, int index) =>
                                             Padding(
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 5.w),
                                               child:
-                                                  OnlineTransactionRecordWidget(),
+                                                  const OnlineTransactionRecordWidget(),
                                             ),
                                         separatorBuilder: (context, index) =>
                                             SizedBox(
@@ -121,6 +118,18 @@ class OnlineTransactionRecordScreen extends StatelessWidget {
                           ],
                         ),
                       ),
+                      GeneralTextButton(
+                          // marginH: 0,
+                          width: MediaQuery.of(context).size.width,
+                          title: 'SponSorship',
+                          fgColor: Colors.white,
+                          bgColor: const Color(0xff362677),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => const SponsorshipScreen()));
+                          })
                     ],
                   ),
                 ),
@@ -158,7 +167,7 @@ class OnlineTransactionRecordWidget extends StatelessWidget {
               Text('Rs 60,200',
                   style: TextStyle(
                       fontSize: 16.sp,
-                      color: Color(0xff36383C),
+                      color: const Color(0xff36383C),
                       fontWeight: FontWeight.w700)),
             ],
           ),
@@ -177,7 +186,7 @@ class OnlineTransactionRecordWidget extends StatelessWidget {
             padding: EdgeInsets.symmetric(vertical: 6.h, horizontal: 10.w),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.r),
-                color: Color(0xffF6F1F1)),
+                color: const Color(0xffF6F1F1)),
             child: Column(
               children: [
                 Row(
@@ -191,7 +200,7 @@ class OnlineTransactionRecordWidget extends StatelessWidget {
                     Text('Rs 60,200',
                         style: TextStyle(
                             fontSize: 12.sp,
-                            color: Color(0xff36383C),
+                            color: const Color(0xff36383C),
                             fontWeight: FontWeight.w500)),
                   ],
                 ),
@@ -209,7 +218,7 @@ class OnlineTransactionRecordWidget extends StatelessWidget {
                     Text('Rs 200',
                         style: TextStyle(
                             fontSize: 12.sp,
-                            color: Color(0xff36383C),
+                            color: const Color(0xff36383C),
                             fontWeight: FontWeight.w500)),
                   ],
                 ),
