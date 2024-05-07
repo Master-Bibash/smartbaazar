@@ -98,43 +98,7 @@ class BankDetailsWidget extends StatelessWidget {
                 SizedBox(
                   height: 10.h,
                 ),
-                Container(
-                  padding: EdgeInsets.only(top: 6.h, left: 12.w, bottom: 7.h),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12.r),
-                      color: const Color(0xffEDECEC)),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Choose File',
-                        style: TextStyle(
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xff36383C)),
-                      ),
-                      SizedBox(
-                        width: 7.w,
-                      ),
-                      Text(
-                        "|",
-                        style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                            color: const Color(0xffADADAD)),
-                      ),
-                      SizedBox(
-                        width: 11.w,
-                      ),
-                      Text(
-                        'No File Chosen',
-                        style: TextStyle(
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xff36383C)),
-                      ),
-                    ],
-                  ),
-                ),
+                ChooseFileWidget(),
                 SizedBox(
                   height: 15.h,
                 ),
@@ -153,6 +117,52 @@ class BankDetailsWidget extends StatelessWidget {
               ],
             ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class ChooseFileWidget extends StatelessWidget {
+  final Color? textColor;
+  const ChooseFileWidget({super.key, this.textColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 6.h, left: 12.w, bottom: 7.h),
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12.r),
+          color: const Color(0xffEDECEC)),
+      child: Row(
+        children: [
+          Text(
+            'Choose File',
+            style: TextStyle(
+                fontSize: 10.sp,
+                fontWeight: FontWeight.w400,
+                color: const Color(0xff36383C)),
+          ),
+          SizedBox(
+            width: 7.w,
+          ),
+          Text(
+            "|",
+            style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w700,
+                color: const Color(0xffADADAD)),
+          ),
+          SizedBox(
+            width: 11.w,
+          ),
+          Text(
+            'No File Chosen',
+            style: TextStyle(
+                fontSize: 10.sp,
+                fontWeight: FontWeight.w400,
+                color: textColor ?? const Color(0xff36383C)),
+          ),
         ],
       ),
     );
