@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/advertisement/view/advertisement_screen.dart';
 import 'package:smartbazar/features/auth/widgets/custom_check_box_widgt.dart';
-import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/create_listing/widget/create_listing_card_widget.dart';
-import 'package:smartbazar/features/my_order/view/my_order_screen.dart';
-import 'package:smartbazar/features/online_transaction_record/online_transacation_record_screen.dart';
 import 'package:smartbazar/features/proceed_pay/view/proceed_to_pay_screen.dart';
 import 'package:smartbazar/features/vendor_details/widgets/bank_details_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
@@ -414,7 +410,7 @@ class ApplySponsorshipPriceScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (_) => ProceesToPayScreen()));
+                            builder: (_) => AdvertisementScreen()));
                   }),
             ],
           ),
