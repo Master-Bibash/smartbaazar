@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/create_listing/view/create_new_listing_scree.dart';
+import 'package:smartbazar/features/vendor/vendor_profile/view/vendor_profile_screen.dart';
 import 'package:smartbazar/features/view/all_product_type_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -42,13 +43,13 @@ class CustomDrawer extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xff362677)),
+                      color: const Color(0xff362677)),
                 ),
                 InkWell(
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Icon(Icons.clear))
+                    child: const Icon(Icons.clear))
               ],
             ),
             SizedBox(
@@ -60,8 +61,17 @@ class CustomDrawer extends StatelessWidget {
                 onTap: (ttile) {
                   switch (ttile) {
                     case 'Products':
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => AllProductType()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const AllProductType()));
+                  }
+                  switch (ttile) {
+                    case 'B2B':
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const VendorProfileScreen()));
                   }
                 },
               ),
@@ -75,8 +85,10 @@ class CustomDrawer extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => CreateNewListinScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const CreateNewListinScreen()));
               },
               child: Row(
                 children: [
@@ -92,11 +104,11 @@ class CustomDrawer extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xff000000),
+                      color: const Color(0xff000000),
                     ),
                   ),
-                  Spacer(),
-                  Icon(
+                  const Spacer(),
+                  const Icon(
                     Icons.arrow_forward_ios,
                     size: 20,
                   ),
@@ -131,8 +143,8 @@ class DrawerItemWidget extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   listOfDrawerItem[index]['imageIcon'],
-                  colorFilter:
-                      ColorFilter.mode(Color(0xff000000), BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(
+                      Color(0xff000000), BlendMode.srcIn),
                 ),
                 SizedBox(
                   width: 12.w,
@@ -142,11 +154,11 @@ class DrawerItemWidget extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
-                    color: Color(0xff000000),
+                    color: const Color(0xff000000),
                   ),
                 ),
-                Spacer(),
-                Row(
+                const Spacer(),
+                const Row(
                   children: [
                     Icon(
                       Icons.arrow_forward_ios,
@@ -163,7 +175,7 @@ class DrawerItemWidget extends StatelessWidget {
         height: 20.h,
         child: Divider(
           thickness: 1.0,
-          color: Color(0xff000000).withOpacity(0.15),
+          color: const Color(0xff000000).withOpacity(0.15),
         ),
       ),
       itemCount: listOfDrawerItem.length,
