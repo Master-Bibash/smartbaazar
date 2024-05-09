@@ -40,6 +40,7 @@ class _VendorBottomNavigationState extends State<VendorBottomNavigation> {
     return GenericSafeArea(
       child: Scaffold(
         backgroundColor: const Color(0xffF6F1F1),
+        resizeToAvoidBottomInset: false,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Padding(
           padding: EdgeInsets.only(top: 10.h),
