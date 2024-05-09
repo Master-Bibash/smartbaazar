@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
+import 'package:smartbazar/features/message/view/chat_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class MessageViewScreen extends StatelessWidget {
@@ -17,8 +19,32 @@ class MessageViewScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Message"),
-                Icon(Icons.more_horiz),
+                const Text("Message"),
+                PopupMenuButton(
+                  offset: const Offset(20, 40),
+                  icon: const Icon(
+                    Icons.more_horiz,
+                  ), //use this icon
+                  onSelected: (item) {
+                    // setState(() {
+                    //   _selectedMenu = item.name;
+                    // });
+                  },
+                  itemBuilder: (BuildContext context) => <PopupMenuEntry>[
+                    const PopupMenuItem(
+                      // value:itemOne,
+                      child: Text('Unread'),
+                    ),
+                    const PopupMenuItem(
+                      // value: Menu.itemThree,
+                      child: Text('Started'),
+                    ),
+                    const PopupMenuItem(
+                      // value: Menu.itemThree,
+                      child: Text('Important'),
+                    ),
+                  ],
+                )
               ],
             ),
             SizedBox(
@@ -29,7 +55,7 @@ class MessageViewScreen extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.mail_outline,
                     ),
                     Text(
@@ -41,14 +67,14 @@ class MessageViewScreen extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.notifications,
                       color: Color(0xff362677),
                     ),
                     Text(
                       'Alerts',
                       style: TextStyle(
-                          color: Color(0xff362677),
+                          color: const Color(0xff362677),
                           fontSize: 10.sp,
                           fontWeight: FontWeight.w700),
                     ),
@@ -64,27 +90,30 @@ class MessageViewScreen extends StatelessWidget {
               style: TextStyle(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w700,
-                  color: Color(0xff000000).withOpacity(0.5)),
+                  color: const Color(0xff000000).withOpacity(0.5)),
             ),
             SizedBox(
               height: 12.h,
             ),
-            ListOfMessages(),
+            ListView.separated(
+                shrinkWrap: true,
+                itemCount: 4,
+                itemBuilder: (BuildContext context, int index) =>
+                    const ListOfMessages(),
+                separatorBuilder: (BuildContext context, int index) => SizedBox(
+                      height: 20.h,
+                    )),
             SizedBox(
-              height: 20.h,
+              height: 40.h,
             ),
-            ListOfMessages(),
-            SizedBox(
-              height: 20.h,
-            ),
-            ListOfMessages(),
-            SizedBox(
-              height: 20.h,
-            ),
-            ListOfMessages(),
-            SizedBox(
-              height: 20.h,
-            ),
+            GeneralTextButton(
+              width: MediaQuery.of(context).size.width,
+              title: 'Chat Screen',
+              fgColor: Colors.white,
+              bgColor: const Color(0xff362677),
+              onPressed: () => Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => ChatScreen())),
+            )
           ],
         ),
       )),
@@ -103,9 +132,9 @@ class ListOfMessages extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.all(12.h),
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: Color(0xffD9D9D9)),
-          child: Icon(Icons.person_3_outlined),
+          decoration: const BoxDecoration(
+              shape: BoxShape.circle, color: Color(0xffD9D9D9)),
+          child: const Icon(Icons.person_3_outlined),
         ),
         SizedBox(
           width: 11.w,
@@ -117,7 +146,7 @@ class ListOfMessages extends StatelessWidget {
               'Sign up for Smartbazar',
               style: TextStyle(
                   fontSize: 14.sp,
-                  color: Color(0xff000000),
+                  color: const Color(0xff000000),
                   fontWeight: FontWeight.w700),
             ),
             Text(
@@ -125,17 +154,17 @@ class ListOfMessages extends StatelessWidget {
               style: TextStyle(
                   fontSize: 12.sp,
                   overflow: TextOverflow.ellipsis,
-                  color: Color(0xff000000).withOpacity(0.45),
+                  color: const Color(0xff000000).withOpacity(0.45),
                   fontWeight: FontWeight.w600),
             )
           ],
         ),
-        Spacer(),
+        const Spacer(),
         Container(
           height: 12.h,
           width: 12.w,
-          decoration:
-              BoxDecoration(shape: BoxShape.circle, color: Color(0xff781740)),
+          decoration: const BoxDecoration(
+              shape: BoxShape.circle, color: Color(0xff781740)),
         )
       ],
     );
