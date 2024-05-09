@@ -66,7 +66,7 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                 width: 40.h,
                 padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 5.w),
                 decoration: BoxDecoration(
-                    color: Color(0xffF5BF05),
+                    color: const Color(0xffF5BF05),
                     shape: BoxShape.circle,
                     border: Border.all(
                       width: 1.w,
@@ -85,7 +85,7 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                     fontWeight: FontWeight.w700,
                     color: Colors.black),
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 height: 32.h,
                 width: 32.h,
@@ -98,12 +98,13 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
             ],
           ),
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 12.w,
-            ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 12.w,
+          ),
+          child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 VendorProfileGridWidget(
                   profileData: profileList,
@@ -111,15 +112,16 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.r),
-                      border: Border.all(width: 1.w, color: Color(0xffADADAD))),
+                      border: Border.all(
+                          width: 1.w, color: const Color(0xffADADAD))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text('Buyer Center'),
                       ),
-                      Divider(
+                      const Divider(
                         color: Color(0xffADADAD),
                       ),
                       Padding(
@@ -137,15 +139,16 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.r),
-                      border: Border.all(width: 1.w, color: Color(0xffADADAD))),
+                      border: Border.all(
+                          width: 1.w, color: const Color(0xffADADAD))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text('Seller Center'),
                       ),
-                      Divider(
+                      const Divider(
                         color: Color(0xffADADAD),
                       ),
                       Padding(
@@ -163,15 +166,16 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                 Container(
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.r),
-                      border: Border.all(width: 1.w, color: Color(0xffADADAD))),
+                      border: Border.all(
+                          width: 1.w, color: const Color(0xffADADAD))),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Text('My Account'),
                       ),
-                      Divider(
+                      const Divider(
                         color: Color(0xffADADAD),
                       ),
                       Padding(
@@ -186,10 +190,109 @@ class _VendorProfileScreenState extends State<VendorProfileScreen> {
                 SizedBox(
                   height: 20.h,
                 ),
+                VendorProfileExtraLinkWidget(),
+                SizedBox(
+                  height: 40.h,
+                ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class VendorProfileExtraLinkWidget extends StatelessWidget {
+  const VendorProfileExtraLinkWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Extra Links',
+            style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.black,
+                fontWeight: FontWeight.w500),
+          ),
+          Row(
+            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 11.h,
+                  ),
+                  Text(
+                    'Exchange AdBoost',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Color(0xff36383C),
+                        fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    'Become a Smart Seller',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Color(0xff36383C),
+                        fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    'FAQ',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Color(0xff36383C),
+                        fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    'Anti-Scam',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Color(0xff36383C),
+                        fontWeight: FontWeight.w400),
+                  ),
+                ],
+              ),
+              SizedBox(
+                width: 50.w,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Temrs & Conditions',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Color(0xff36383C),
+                        fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    'Prvacy',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Color(0xff36383C),
+                        fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    'Contact',
+                    style: TextStyle(
+                        fontSize: 12.sp,
+                        color: Color(0xff36383C),
+                        fontWeight: FontWeight.w400),
+                  ),
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -204,7 +307,7 @@ class VendorProfileGridWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
           crossAxisSpacing: 0.2,
           mainAxisSpacing: 5.0,
@@ -216,7 +319,7 @@ class VendorProfileGridWidget extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 18.r,
-                backgroundColor: Color(0xff362677),
+                backgroundColor: const Color(0xff362677),
                 child: Icon(
                   profileData[index]['icon'],
                   color: Colors.white,
@@ -259,7 +362,7 @@ class BuyerCenterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
           crossAxisSpacing: 30,
           mainAxisSpacing: 2.0,
@@ -307,7 +410,7 @@ class MyAccountWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
         shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
           crossAxisSpacing: 16,
           mainAxisSpacing: 2.0,

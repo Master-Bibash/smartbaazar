@@ -62,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
       color: Colors.white,
       child: Scaffold(
         key: _key,
+        resizeToAvoidBottomInset: false,
         backgroundColor: const Color(0xffF6F1F1),
         appBar: AppBar(
           toolbarHeight: 85.h,

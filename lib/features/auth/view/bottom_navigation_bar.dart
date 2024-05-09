@@ -67,6 +67,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
       child: Scaffold(
         backgroundColor: const Color(0xffF6F1F1),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        resizeToAvoidBottomInset: false,
         floatingActionButton: Padding(
           padding: EdgeInsets.only(top: 10.h),
           // child: Container(
