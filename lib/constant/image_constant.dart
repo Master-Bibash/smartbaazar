@@ -45,4 +45,7 @@ class ImageConstant {
   static String cardImage = '$basePath/cardImage.png';
   static String flameIcon = '$basePath/flameIcon.png';
   static String adidasLogo = '$basePath/adidasLogo.png';
+  static String ticketCard = '$basePath/ticketCard.png';
+  static String samasungImage = '$basePath/samasungImage.png';
+  static String appleImage = '$basePath/appleImage.png';
 }

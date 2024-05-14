@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/auth/widgets/custom_check_box_widgt.dart';
+import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
 import 'package:smartbazar/features/create_listing/widget/create_listing_card_widget.dart';
-import 'package:smartbazar/features/vendor/view/disputes_screen.dart';
+import 'package:smartbazar/features/scratch_win/screen/subscribe_win_every_day_screen.dart';
 import 'package:smartbazar/features/view/product_deatials_screen.dart';
 import 'package:smartbazar/features/widgets/item_description_widget.dart';
 import 'package:smartbazar/features/widgets/product_model.dart';
-import 'package:smartbazar/features/widgets/service_container_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class ScratchWinHomeScreen extends StatefulWidget {
@@ -192,14 +193,13 @@ class _ScratchWinHomeScreenState extends State<ScratchWinHomeScreen> {
                                 borderRadius: BorderRadius.circular(30.r))),
                       ),
                     ),
-
                     SizedBox(
                       height: 10.h,
                     ),
                     SizedBox(
                       height: 500.h,
                       child: DefaultTabController(
-                        length: 3, // Number of tabs
+                        length: 3,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
@@ -346,87 +346,9 @@ class _ScratchWinHomeScreenState extends State<ScratchWinHomeScreen> {
                         ),
                       ),
                     ),
-                    // SizedBox(
-                    //   height: 292.h,
-                    //   child: ListView.separated(
-                    //     primary: false,
-                    //     physics: const BouncingScrollPhysics(),
-                    //     scrollDirection: Axis.horizontal,
-                    //     padding: EdgeInsets.only(left: 5.w),
-                    //     shrinkWrap: true,
-                    //     itemCount: filteredProducts.length,
-                    //     itemBuilder: (context, index) {
-                    //       final product = filteredProducts[index];
-                    //       return ItemDescriptionWidget(
-                    //         product: product,
-                    //         onTap: (product) {
-                    //           Navigator.push(
-                    //               context,
-                    //               MaterialPageRoute(
-                    //                   builder: (_) => ProductDetailsScreen(
-                    //                         product: product,
-                    //                       )));
-                    //         },
-                    //         // productName: product.name,
-                    //       );
-                    //     },
-                    //     separatorBuilder: (BuildContext context, int index) {
-                    //       return SizedBox(
-                    //         width: 12.h,
-                    //       );
-                    //     },
-                    //   ),
-                    // ),
                   ],
                 ),
               ),
-              SizedBox(
-                height: 20.h,
-              ),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 20.h),
-              //   child: Column(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              //       Text(
-              //         'Tranding',
-              //         style: TextStyle(
-              //             fontSize: 14.sp,
-              //             fontWeight: FontWeight.w700,
-              //             color: Colors.black),
-              //       ),
-              //       SizedBox(
-              //         height: 291.h,
-              //         child: ListView.separated(
-              //           primary: false,
-              //           physics: const BouncingScrollPhysics(),
-              //           scrollDirection: Axis.horizontal,
-              //           padding: EdgeInsets.only(left: 5.w),
-              //           shrinkWrap: true,
-              //           itemCount: filteredProducts.length,
-              //           itemBuilder: (context, index) => ItemDescriptionWidget(
-              //             product: filteredProducts[index],
-              //             onTap: (p) {
-              //               Navigator.push(
-              //                   context,
-              //                   MaterialPageRoute(
-              //                       builder: (_) =>
-              //                           ProductDetailsScreen(product: p)));
-              //             },
-              //           ),
-              //           separatorBuilder: (BuildContext context, int index) {
-              //             return SizedBox(
-              //               width: 12.h,
-              //             );
-              //           },
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 20.h,
-              // ),
             ],
           ),
         ),
@@ -505,29 +427,193 @@ class shareContainer extends StatelessWidget {
           ),
           Column(
             children: [
-              Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(6.r),
-                      color: const Color.fromARGB(255, 42, 106, 158)),
-                  padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.facebook_outlined,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 5.w,
-                      ),
-                      Text(
-                        'Share',
-                        style: TextStyle(
-                            fontSize: 10.sp,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  )),
+              InkWell(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          backgroundColor: Colors.white,
+                          titlePadding: EdgeInsets.zero,
+                          title: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 5.w, vertical: 8.h),
+                            decoration: BoxDecoration(
+                                color: Color(0xff362677),
+                                borderRadius: BorderRadius.only(
+                                    topRight: Radius.circular(20.r),
+                                    topLeft: Radius.circular(20.r))),
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      '*Terms and conditions apply.',
+                                      style: TextStyle(
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.white),
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: const Icon(
+                                        Icons.close,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
+                                Text(
+                                  'Thank you for following us. Scratch and win to try your luck!',
+                                  style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white),
+                                ),
+                                Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Image.asset(
+                                            ImageConstant.scartchWinImage),
+                                        SizedBox(
+                                          width: 10.w,
+                                        ),
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text('Daily prizes up for grabs',
+                                                  style: TextStyle(
+                                                      fontSize: 18.sp,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color: Colors.white)),
+                                              Text('Try your luck!',
+                                                  style: TextStyle(
+                                                      fontSize: 18.sp,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color: Colors.white)),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 10.h,
+                                    ),
+                                    ScratchHereContainerWidget()
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 12.w),
+                                child: Row(
+                                  children: [
+                                    CustomCheckbox(
+                                        value: true, onChanged: (bool) {}),
+                                    SizedBox(
+                                      width: 10.w,
+                                    ),
+                                    Expanded(
+                                      child: Text(
+                                        'I agree on the terms & conditions of scratch & Win',
+                                        style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w700),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 12.h,
+                              ),
+                              const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  TotalWorthContainer(),
+                                  TotalWorthContainer(),
+                                  TotalWorthContainer()
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              GeneralTextButton(
+                                height: 30.h,
+                                title: 'Try Again',
+                                bgColor: Color(0xff362677),
+                                fgColor: Colors.white,
+                                borderRadius: 15.r,
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (_) =>
+                                              SubscribeAndWinEveryDay()));
+                                },
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  AdidasLogoContainer(),
+                                  AdidasLogoContainer(),
+                                  AdidasLogoContainer(),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      });
+                },
+                child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6.r),
+                        color: const Color.fromARGB(255, 42, 106, 158)),
+                    padding:
+                        EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.facebook_outlined,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 5.w,
+                        ),
+                        Text(
+                          'Share',
+                          style: TextStyle(
+                              fontSize: 10.sp,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    )),
+              ),
               SizedBox(
                 height: 10.h,
               ),
@@ -555,6 +641,101 @@ class shareContainer extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class ScratchHereContainerWidget extends StatelessWidget {
+  const ScratchHereContainerWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Stack(
+        children: [
+          Image.asset(ImageConstant.ticketCard),
+          Positioned(
+            top: 30.h,
+            left: 85.h,
+            right: 20.h,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Scratch',
+                  style: TextStyle(
+                      fontSize: 20.sp,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                ),
+                SizedBox(
+                  height: 10.w,
+                ),
+                Text(
+                  'Here',
+                  style: TextStyle(
+                      fontSize: 20.sp,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class AdidasLogoContainer extends StatelessWidget {
+  const AdidasLogoContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 20.h),
+      color: Color(0xffEDECEC),
+      child: Image.asset(
+        ImageConstant.adidasLogo,
+        height: 30.h,
+      ),
+    );
+  }
+}
+
+class TotalWorthContainer extends StatelessWidget {
+  const TotalWorthContainer({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'Total gifts Worth',
+          style: TextStyle(
+            fontSize: 12.sp,
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+          ),
+        ),
+        Text(
+          '500,000',
+          style: TextStyle(
+            fontSize: 20.sp,
+            fontWeight: FontWeight.w700,
+            color: Colors.black,
+          ),
+        ),
+      ],
     );
   }
 }
