@@ -31,6 +31,7 @@ const String appleIcon = '$baseAsset/appleIcon.svg';
 const String addidasIcon = '$baseAsset/addidasIcon.svg';
 const String flameIcon = '$baseAsset/flameIcon.svg';
 const String viberIcon = '$baseAsset/viberIcon.svg';
+const String fileIcon = '$baseAsset/fileIcon.svg';
 
 class ImageConstant {
   static String basePath = 'assets/images';
@@ -48,4 +49,6 @@ class ImageConstant {
   static String ticketCard = '$basePath/ticketCard.png';
   static String samasungImage = '$basePath/samasungImage.png';
   static String appleImage = '$basePath/appleImage.png';
+  static String adBoostImage = '$basePath/adBoostImage.png';
+  static String pageNotFound = '$basePath/pageNotFoundImage.png';
 }

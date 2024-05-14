@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
+import 'package:smartbazar/features/terms_condition/view/terms_condtion_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 class SubscribeAndWinEveryDay extends StatelessWidget {
@@ -258,6 +259,12 @@ class SubscribeAndWinEveryDay extends StatelessWidget {
                             fgColor: Colors.white,
                             bgColor: const Color(0xff362677),
                             borderRadius: 10.r,
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => TermsConditionScreen()));
+                            },
                           )
                         ],
                       ),
