@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/create_listing/view/create_new_listing_scree.dart';
 import 'package:smartbazar/features/follow_and_suggestion/view/follow_and_suggestion_screen.dart';
+import 'package:smartbazar/features/scratch_win/screen/scratch_home_screen.dart';
 import 'package:smartbazar/features/vendor/vendor_profile/view/vendor_profile_screen.dart';
 import 'package:smartbazar/features/view/all_product_type_screen.dart';
 
@@ -81,6 +82,13 @@ class CustomDrawer extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (_) =>
                                   const FollowAndSuggestionScreen()));
+                  }
+                  switch (ttile) {
+                    case 'Services':
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const ScratchWinHomeScreen()));
                   }
                 },
               ),
