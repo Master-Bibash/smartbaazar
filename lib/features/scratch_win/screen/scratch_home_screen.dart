@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:scratcher/widgets.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/widgets/custom_check_box_widgt.dart';
 import 'package:smartbazar/features/auth/widgets/genral_text_button_widget.dart';
@@ -645,50 +646,137 @@ class shareContainer extends StatelessWidget {
   }
 }
 
-class ScratchHereContainerWidget extends StatelessWidget {
+class ScratchHereContainerWidget extends StatefulWidget {
   const ScratchHereContainerWidget({
     super.key,
   });
 
   @override
+  State<ScratchHereContainerWidget> createState() =>
+      _ScratchHereContainerWidgetState();
+}
+
+class _ScratchHereContainerWidgetState
+    extends State<ScratchHereContainerWidget> {
+  bool isScratch = false;
+  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Stack(
-        children: [
-          Image.asset(ImageConstant.ticketCard),
-          Positioned(
-            top: 30.h,
-            left: 85.h,
-            right: 20.h,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        // child: Stack(
+        //   children: [
+        //     // Image.asset(ImageConstant.ticketCard),
+        //     Scratcher(
+        //       brushSize: 30,
+        //       threshold: 40,
+        //       color: Colors.red,
+        //       onChange: (value) => print("Scratch progress: $value%"),
+        //       onThreshold: () => print("Threshold reached, you won!"),
+        //       image: Image.asset(ImageConstant.ticketCard),
+        //       // child: Container(
+        //       //   height: 100,
+        //       //   width: 100,
+        //       //   color: Colors.blue,
+        //       // ),
+        //       child: Image.asset(
+        //         ImageConstant.ticketCard,
+        //         color: Colors.white,
+        //       ),
+        //     ),
+        //     Positioned(
+        //       top: 30.h,
+        //       left: 85.h,
+        //       right: 20.h,
+        //       child: Column(
+        //         crossAxisAlignment: CrossAxisAlignment.start,
+        //         children: [
+        //           Text(
+        //             'Scratch',
+        //             style: TextStyle(
+        //                 fontSize: 20.sp,
+        //                 fontStyle: FontStyle.italic,
+        //                 fontWeight: FontWeight.w400,
+        //                 color: Colors.black),
+        //           ),
+        //           SizedBox(
+        //             height: 10.w,
+        //           ),
+        //           Text(
+        //             'Here',
+        //             style: TextStyle(
+        //                 fontSize: 20.sp,
+        //                 fontStyle: FontStyle.italic,
+        //                 fontWeight: FontWeight.w400,
+        //                 color: Colors.black),
+        //           ),
+        //         ],
+        //       ),
+        //     )
+        //   ],
+        // ),
+        child: Center(
+          child: Scratcher(
+            brushSize: 30,
+            threshold: 50,
+            enabled: true,
+            // color: Colors.red,
+            // color: Colors.yellow,
+            accuracy: ScratchAccuracy.high,
+            onChange: (value) {
+              if (value > -1) {
+                isScratch = true;
+                setState(() {});
+              }
+            },
+            onThreshold: () {
+              // isScratch = !isScratch;
+              print('some thing .............');
+              setState(() {});
+            },
+            image: Image.asset(
+              ImageConstant.ticketCard,
+              // color: Colors.white,
+            ),
+
+            child: Stack(
               children: [
-                Text(
-                  'Scratch',
-                  style: TextStyle(
-                      fontSize: 20.sp,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black),
+                Image.asset(
+                  ImageConstant.ticketCard,
+                  color: isScratch ? Colors.white : null,
                 ),
-                SizedBox(
-                  height: 10.w,
-                ),
-                Text(
-                  'Here',
-                  style: TextStyle(
-                      fontSize: 20.sp,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black),
-                ),
+                Positioned(
+                  top: 30.h,
+                  left: 85.h,
+                  right: 20.h,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        isScratch ? 'Congratulations' : 'Scratch',
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 10.w,
+                      ),
+                      Text(
+                        isScratch ? 'You won' : 'Here',
+                        style: TextStyle(
+                            fontSize: 20.sp,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
-          )
-        ],
-      ),
-    );
+          ),
+        ));
   }
 }
 
@@ -701,7 +789,7 @@ class AdidasLogoContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 20.h),
-      color: Color(0xffEDECEC),
+      color: const Color(0xffEDECEC),
       child: Image.asset(
         ImageConstant.adidasLogo,
         height: 30.h,
