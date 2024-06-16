@@ -714,67 +714,64 @@ class _ScratchHereContainerWidgetState
         //     )
         //   ],
         // ),
-        child: Center(
-          child: Scratcher(
-            brushSize: 30,
-            threshold: 50,
-            enabled: true,
-            // color: Colors.red,
-            // color: Colors.yellow,
-            accuracy: ScratchAccuracy.high,
-            onChange: (value) {
-              if (value > -1) {
-                isScratch = true;
-                setState(() {});
-              }
-            },
-            onThreshold: () {
-              // isScratch = !isScratch;
-              print('some thing .............');
+        child: Scratcher(
+          brushSize: 30,
+          threshold: 50,
+          enabled: true,
+          // color: Colors.red,
+          accuracy: ScratchAccuracy.high,
+          onChange: (value) {
+            if (value > -1) {
+              isScratch = true;
               setState(() {});
-            },
-            image: Image.asset(
-              ImageConstant.ticketCard,
-              // color: Colors.white,
-            ),
+            }
+          },
+          onThreshold: () {
+            // isScratch = !isScratch;
+            print('some thing .............');
+            setState(() {});
+          },
+          image: Image.asset(
+            ImageConstant.ticketCard,
+            // color: Colors.white,
+          ),
 
-            child: Stack(
-              children: [
-                Image.asset(
-                  ImageConstant.ticketCard,
-                  color: isScratch ? Colors.white : null,
+          child: Stack(
+            children: [
+              Image.asset(
+                ImageConstant.ticketCard,
+                color: isScratch ? Colors.white : null,
+              ),
+              Positioned(
+                top: 30.h,
+                left: 85.h,
+                right: 20.h,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      isScratch ? 'Congratulations' : 'Scratch',
+                      style: TextStyle(
+                          fontSize: 20.sp,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
+                    ),
+                    SizedBox(
+                      height: 10.w,
+                    ),
+                    Text(
+                      isScratch ? 'You won' : 'Here',
+                      style: TextStyle(
+                          fontSize: 20.sp,
+                          fontStyle: FontStyle.italic,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black),
+                    ),
+                  ],
                 ),
-                Positioned(
-                  top: 30.h,
-                  left: 85.h,
-                  right: 20.h,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        isScratch ? 'Congratulations' : 'Scratch',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                      SizedBox(
-                        height: 10.w,
-                      ),
-                      Text(
-                        isScratch ? 'You won' : 'Here',
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.black),
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ));
   }

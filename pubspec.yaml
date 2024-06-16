@@ -41,6 +41,8 @@ dependencies:
   dotted_border: ^2.1.0
   carousel_slider: ^4.2.1
   scratcher: ^2.5.0
+  provider: ^6.1.2
+  dio: ^5.4.3+1
 
 dev_dependencies:
   flutter_test:
