@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smartbazar/common/controller/generic_state.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/auth/controller/login_controller.dart';
 import 'package:smartbazar/features/auth/view/bottom_navigation_bar.dart';
 import 'package:smartbazar/features/auth/view/forget_password_screen.dart';
 import 'package:smartbazar/features/auth/view/signup_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
-import 'package:smartbazar/features/vendor/vendor_bottom_navigation.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
+import 'package:smartbazar/utils/custom_toast.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,9 +22,32 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController controller = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  WidgetRef? ref;
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(
+    BuildContext context,
+  ) {
+    ref?.listen(loginController, (previous, current) {
+      if (current case ErrorState()) {
+        showCustomToast(current.error.toString());
+      } else if (current case SuccessState()) {
+        showCustomToast(current.data.message.toString());
+      }
+    });
     return GenericSafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -56,14 +82,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 50.h,
                 ),
                 CustomTextFieldWidget(
-                  controller: controller,
+                  controller: emailController,
                   icon: Icons.mail,
                   hintText: 'Email',
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
+                  controller: passwordController,
                   icon: Icons.lock,
                   hintText: 'Password',
                 ),
@@ -97,21 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 GeneralEelevatedButton(
                   text: 'Log In',
                   onPresssed: () {
-                    if (_formKey.currentState!.validate()) {
-                      if (controller.text.startsWith('123')) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const BottomNavigationScreen()));
-                      } else if (controller.text.startsWith('456')) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const VendorBottomNavigation()));
-                      }
-                    }
+                    _performLogin();
                     // Navigator.push(
                     //     context,
                     //     MaterialPageRoute(
@@ -126,10 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   title: 'Don\'t have an account? ',
                   subtitle: 'Sign Up',
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpScreen()));
+                    _performLogin();
                   },
                 ),
                 SizedBox(
@@ -141,5 +151,16 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void _performLogin() async {
+    if (!_formKey.currentState!.validate()) return;
+    FocusScope.of(context).unfocus();
+    ref?.read(loginController.notifier).login(
+          context,
+          ref: ref!,
+          email: emailController.text,
+          password: passwordController.text,
+        );
   }
 }
