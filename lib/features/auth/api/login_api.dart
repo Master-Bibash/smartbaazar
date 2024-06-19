@@ -9,7 +9,7 @@ class LoginApi {
 
   login(String email, String password) async {
     Map loginBody = {
-      'email': email,
+      'login': email,
       'password': password,
     };
     try {

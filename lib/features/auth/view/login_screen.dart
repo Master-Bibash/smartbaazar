@@ -9,6 +9,7 @@ import 'package:smartbazar/features/auth/view/signup_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
+import 'package:smartbazar/features/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 import 'package:smartbazar/utils/custom_toast.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -24,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  WidgetRef? ref;
+
   @override
   void initState() {
     super.initState();
@@ -38,16 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   @override
-  Widget build(
-    BuildContext context,
-  ) {
-    ref?.listen(loginController, (previous, current) {
-      if (current case ErrorState()) {
-        showCustomToast(current.error.toString());
-      } else if (current case SuccessState()) {
-        showCustomToast(current.data.message.toString());
-      }
-    });
+  Widget build(BuildContext context) {
     return GenericSafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -121,17 +113,38 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 20.h,
                 ),
-                GeneralEelevatedButton(
-                  text: 'Log In',
-                  onPresssed: () {
-                    _performLogin();
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //         builder: (context) =>
-                    //             const BottomNavigationScreen()));
-                  },
-                ),
+                Consumer(builder: (context, ref, child) {
+                  final state = ref.watch(loginController);
+
+                  ref.listen(loginController, (previous, current) {
+                    if (current is ErrorState) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(current.message)),
+                      );
+                    } else if (current is SucessState) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const HomeScreen()));
+                    }
+                  });
+                  return GeneralEelevatedButton(
+                    text: 'Log In',
+                    onPresssed: () {
+                      if (!_formKey.currentState!.validate()) return;
+                      ref.read(loginController.notifier).login(
+                            ref: ref,
+                            email: emailController.text,
+                            password: passwordController.text,
+                          );
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             const BottomNavigationScreen()));
+                    },
+                  );
+                }),
                 SizedBox(
                   height: 120.h,
                 ),
@@ -139,7 +152,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   title: 'Don\'t have an account? ',
                   subtitle: 'Sign Up',
                   onPressed: () {
-                    _performLogin();
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => SignUpScreen()));
                   },
                 ),
                 SizedBox(
@@ -151,16 +165,5 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-  }
-
-  void _performLogin() async {
-    if (!_formKey.currentState!.validate()) return;
-    FocusScope.of(context).unfocus();
-    ref?.read(loginController.notifier).login(
-          context,
-          ref: ref!,
-          email: emailController.text,
-          password: passwordController.text,
-        );
   }
 }

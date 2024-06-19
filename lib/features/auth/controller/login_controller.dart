@@ -3,42 +3,50 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:smartbazar/common/controller/generic_state.dart';
+import 'package:smartbazar/features/auth/api/login_api.dart';
 import 'package:smartbazar/features/auth/model/login_model.dart';
-import 'package:smartbazar/features/auth/repository/auth_repository.dart';
-import 'package:smartbazar/features/view/home_screen.dart';
 
+// final loginController = StateNotifierProvider<LoginController, LoginData>(
+//     (ref) => LoginController());
+
+// class LoginController extends StateNotifier<GenericState> {
+//   LoginController() : super(InitialState());
+
+//   Future<void> login({
+//     required WidgetRef ref,
+//     required String email,
+//     required String password,
+//   }) async {
+//     state = LoadingState();
+//     try {
+//       final loginData = await LoginApi().login(
+//         email,
+//         password,
+//       );
+//       state = SucessState();
+//     } catch (e) {
+//       state = ErrorState(e.toString());
+//     }
+//   }
+// }
 final loginController =
-    StateNotifierProvider.autoDispose<LoginProvider, GenericState<LoginData>>(
-  (ref) => LoginProvider(
-    InitialState(),
-    repository: AuthRepository(),
-  ),
-);
+    StateNotifierProvider<LoginController, GenericState>((ref) {
+  return LoginController();
+});
 
-class LoginProvider extends StateNotifier<GenericState<LoginData>> {
-  final AuthRepository repository;
+class LoginController extends StateNotifier<GenericState> {
+  LoginController() : super(const InitialState());
 
-  LoginProvider(
-    super._state, {
-    required this.repository,
-  });
-
-  void login(
-    BuildContext context, {
-    required WidgetRef ref,
-    required String email,
-    required String password,
-  }) async {
+  Future<void> login(
+      {required WidgetRef ref,
+      required String email,
+      required String password}) async {
     state = LoadingState();
     try {
-      final loginData = await repository.login(
-        email: email,
-        password: password,
-      );
-      state = SuccessState(loginData);
-      Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
-    } catch (e, s) {
-      state = ErrorState(e, s);
+      final loginData = await LoginApi().login(email, password);
+      state = SucessState();
+    } catch (e) {
+      state = ErrorState(e.toString());
     }
   }
 }

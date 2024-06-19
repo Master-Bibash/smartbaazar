@@ -5,7 +5,7 @@ import 'package:smartbazar/features/auth/view/login_screen.dart';
 import 'package:smartbazar/features/view/home_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatefulWidget {

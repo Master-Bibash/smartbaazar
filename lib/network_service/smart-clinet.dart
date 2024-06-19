@@ -74,12 +74,14 @@ class SmartClinet {
       'Content-Type': 'application/json',
       'accept': '*/*',
       'Connection': 'Keep-Alive',
+      'X-AppApiToken': 'Yala@Techies_Nepal'
     };
 
     Map<String, String> headingWithToken = {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer $token',
       'Connection': 'Keep-Alive',
+      'X-AppApiToken': 'Yala@Techies_Nepal'
     };
 
     switch (requestType) {
