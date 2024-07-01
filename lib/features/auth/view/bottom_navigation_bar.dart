@@ -8,7 +8,7 @@ import 'package:smartbazar/features/order_details/view/order_details_screen.dart
 import 'package:smartbazar/features/vendor/view/disputes_screen.dart';
 import 'package:smartbazar/features/vendor/view/vendor_home_screen.dart';
 import 'package:smartbazar/features/vendor_details/view/vendor_details_screen.dart';
-import 'package:smartbazar/features/view/home_screen.dart';
+import 'package:smartbazar/features/home/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
 // class BottomNavigationScreen extends StatefulWidget {

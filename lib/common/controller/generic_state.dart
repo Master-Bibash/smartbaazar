@@ -1,20 +1,27 @@
-abstract class GenericState {
-  const GenericState();
-}
+import 'package:smartbazar/utils/custom_exception.dart';
 
-class InitialState extends GenericState {
-  const InitialState();
-}
+abstract class GenericState {}
 
-class LoadingState extends GenericState {
-  const LoadingState();
-}
+class InitialState extends GenericState {}
 
-class SucessState extends GenericState {
-  const SucessState();
+class LoadingState extends GenericState {}
+
+class LoadedState<T> extends GenericState {
+  final T? response;
+  LoadedState({
+    this.response,
+  });
+
+  LoadedState<T> copyWith({
+    T? response,
+  }) {
+    return LoadedState<T>(
+      response: response ?? this.response,
+    );
+  }
 }
 
 class ErrorState extends GenericState {
-  final String message;
-  const ErrorState(this.message);
+  final CustomException exception;
+  ErrorState(this.exception);
 }

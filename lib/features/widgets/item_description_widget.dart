@@ -2,26 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/home/model/sponsored_model.dart';
 import 'package:smartbazar/features/view/product_deatials_screen.dart';
 import 'package:smartbazar/features/widgets/product_model.dart';
 
 class ItemDescriptionWidget extends StatelessWidget {
   // final String productName;
-  final Product product;
-  final Function(Product) onTap;
+  final SponsoredPosts sponsoredModel;
+  final Function(SponsoredModel) onTap;
   const ItemDescriptionWidget(
       {super.key,
       // required this.productName,
-      required this.product,
+      required this.sponsoredModel,
       required this.onTap});
+
+  // int calculateMode(List<int> ratings) {
+  //   if (ratings.isEmpty) return 0;
+  //   Map<int, int> frequencyMap = {};
+  //   for (int rating in ratings) {
+  //     frequencyMap[rating] = (frequencyMap[ratings] ?? 0) + 1;
+  //   }
+  //   return frequencyMap.entries
+  //       .reduce(
+  //           (value, element) => value.value > element.value ? value : element)
+  //       .key;
+  // }
 
   @override
   Widget build(BuildContext context) {
+    // for (var posts in sponsoredModel.sponsoredPosts!) {
+    //   final modeRating =
+    //       posts.avgRating != null ? calculateMode([posts.avgRating!]) : null;
+    // }
     return InkWell(
       onTap: () {
         // Navigator.push(context,
         //     MaterialPageRoute(builder: (_) => const ProductDetailsScreen()));
-        onTap(product);
+        // onTap(sponsoredModel);
+        // onTap(sponsoredMode)
       },
       child: Container(
         height: 291.h,
@@ -49,7 +67,7 @@ class ItemDescriptionWidget extends StatelessWidget {
             ),
             Text(
               // 'Acer Aspire 5 A515-56-32DK Intel\n Core i3 11th Gen/15.6 FHD',
-              product.name,
+              sponsoredModel.title.toString(),
               style: TextStyle(
                   fontSize: 10.sp,
                   color: Colors.black,
@@ -58,14 +76,14 @@ class ItemDescriptionWidget extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
-            Text('Rs. 60,0000',
+            Text(sponsoredModel.price.toString(),
                 style: TextStyle(
                     fontSize: 10.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w700)),
             Row(
               children: [
-                const Text('Rs. 100,00'),
+                Text(sponsoredModel.price.toString()),
                 SizedBox(
                   width: 10.w,
                 ),
@@ -81,7 +99,7 @@ class ItemDescriptionWidget extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      '-40% Off',
+                      sponsoredModel.discountedPrice.toString(),
                       style: TextStyle(
                           fontSize: 9.sp,
                           fontWeight: FontWeight.w400,
@@ -92,7 +110,7 @@ class ItemDescriptionWidget extends StatelessWidget {
             SizedBox(
               height: 13.h,
             ),
-            Text('Tech Store Nepal Kathamandu',
+            Text(sponsoredModel.contactName.toString(),
                 style: TextStyle(
                     decoration: TextDecoration.lineThrough,
                     fontSize: 9.sp,
@@ -166,7 +184,7 @@ class ItemDescriptionWidget extends StatelessWidget {
                   width: 3.w,
                 ),
                 Text(
-                  'Kathmandu',
+                  sponsoredModel.pickup.toString(),
                   style: TextStyle(
                     fontSize: 9.sp,
                     fontWeight: FontWeight.w400,

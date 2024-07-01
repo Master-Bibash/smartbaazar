@@ -3,25 +3,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smartbazar/common/controller/generic_state.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/auth/controller/login_controller.dart';
-import 'package:smartbazar/features/auth/view/bottom_navigation_bar.dart';
 import 'package:smartbazar/features/auth/view/forget_password_screen.dart';
 import 'package:smartbazar/features/auth/view/signup_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
 import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart';
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
-import 'package:smartbazar/features/view/home_screen.dart';
+import 'package:smartbazar/features/home/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
-import 'package:smartbazar/utils/custom_toast.dart';
+import 'package:smartbazar/utils/custom_loading_indicatior.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -40,6 +39,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final loginProvider = ref.watch(loginController.notifier);
+
+    ref.listen<GenericState>(loginController, (previous, state) {
+      if (state is LoadedState) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (_) => const HomeScreen()),
+        );
+        // showCustomToast(state.response.toString());
+      } else if (state is ErrorState) {
+        print(state.exception.message);
+      } else if (State is LoadingState) {
+        onLoading(context);
+      }
+    });
     return GenericSafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -113,38 +127,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(
                   height: 20.h,
                 ),
-                Consumer(builder: (context, ref, child) {
-                  final state = ref.watch(loginController);
-
-                  ref.listen(loginController, (previous, current) {
-                    if (current is ErrorState) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text(current.message)),
-                      );
-                    } else if (current is SucessState) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const HomeScreen()));
-                    }
-                  });
-                  return GeneralEelevatedButton(
-                    text: 'Log In',
-                    onPresssed: () {
-                      if (!_formKey.currentState!.validate()) return;
-                      ref.read(loginController.notifier).login(
-                            ref: ref,
-                            email: emailController.text,
-                            password: passwordController.text,
-                          );
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) =>
-                      //             const BottomNavigationScreen()));
-                    },
-                  );
-                }),
+                GeneralEelevatedButton(
+                  text: 'Log In',
+                  onPresssed: () async {
+                    if (!_formKey.currentState!.validate()) {}
+                    await loginProvider.login(context,
+                        ref: ref,
+                        email: emailController.text,
+                        password: passwordController.text);
+                  },
+                ),
                 SizedBox(
                   height: 120.h,
                 ),

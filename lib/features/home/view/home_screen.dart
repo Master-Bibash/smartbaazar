@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/home/controller/sponsored_controller.dart';
 import 'package:smartbazar/features/view/product_deatials_screen.dart';
 import 'package:smartbazar/features/widgets/banner_widget.dart';
 import 'package:smartbazar/features/widgets/brand_bazar_widget.dart';
@@ -11,14 +13,14 @@ import 'package:smartbazar/features/widgets/product_model.dart';
 import 'package:smartbazar/features/widgets/service_container_widget.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends ConsumerState<HomeScreen> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   List<Product> product = [
     // Your list of products
@@ -58,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final sponsoreData = ref.watch(sponsoredController);
     return GenericSafeArea(
       color: Colors.white,
       child: Scaffold(
@@ -229,15 +232,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (context, index) {
                           final product = filteredProducts[index];
                           return ItemDescriptionWidget(
-                            product: product,
-                            onTap: (product) {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => ProductDetailsScreen(
-                                            product: product,
-                                          )));
-                            },
+                            // product: product,
+                            // onTap: (product) {
+                            //   Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //           builder: (_) => ProductDetailsScreen(
+                            //                 product: product,
+                            //               )));
+                            // },
+                             sponsoredModel: 
+                             , onTap: (SponsoredModel ) {  },
                             // productName: product.name,
                           );
                         },
@@ -276,15 +281,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: EdgeInsets.only(left: 5.w),
                         shrinkWrap: true,
                         itemCount: filteredProducts.length,
-                        itemBuilder: (context, index) => ItemDescriptionWidget(
-                          product: filteredProducts[index],
-                          onTap: (p) {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) =>
-                                        ProductDetailsScreen(product: p)));
-                          },
+                        itemBuilder: (context, index) => ItemDescriptionWidget(sponsoredModel: , onTap: (SponsoredModel ) {  },
+                          // product: filteredProducts[index],
+                          // onTap: (p) {
+                          //   Navigator.push(
+                          //       context,
+                          //       MaterialPageRoute(
+                          //           builder: (_) =>
+                          //               ProductDetailsScreen(product: p)));
+                          // },
                         ),
                         separatorBuilder: (BuildContext context, int index) {
                           return SizedBox(
