@@ -57,6 +57,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                 CustomTextFieldWidget(
                   icon: Icons.mail,
                   hintText: 'Email or Phone Number',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 60.h,

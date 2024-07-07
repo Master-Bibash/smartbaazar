@@ -53,7 +53,7 @@ class ResetPasswordScreen extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.lock,
                   hintText: 'New Pasword',
                   suffixIcon: Icon(
@@ -61,11 +61,12 @@ class ResetPasswordScreen extends StatelessWidget {
                     size: 30,
                     color: Color(0xffADADAD),
                   ),
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.lock,
                   hintText: 'Re-type New Password',
                   suffixIcon: Icon(
@@ -73,6 +74,7 @@ class ResetPasswordScreen extends StatelessWidget {
                     size: 30,
                     color: Color(0xffADADAD),
                   ),
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 60.h,

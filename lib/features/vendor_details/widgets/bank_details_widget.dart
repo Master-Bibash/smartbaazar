@@ -44,35 +44,43 @@ class BankDetailsWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CustomTextFieldWidget(
-                    fill: true,
-                    fillColor: Color(0xffF3F3F3),
-                    icon: Icons.person,
-                    hintText: "Bnnk Name"),
+                CustomTextFieldWidget(
+                  fill: true,
+                  fillColor: Color(0xffF3F3F3),
+                  icon: Icons.person,
+                  hintText: "Bnnk Name",
+                  validator: (_) {},
+                ),
                 SizedBox(
                   height: 10.2.h,
                 ),
-                const CustomTextFieldWidget(
-                    fill: true,
-                    fillColor: Color(0xffF3F3F3),
-                    icon: Icons.call,
-                    hintText: "Bank Branch"),
+                CustomTextFieldWidget(
+                  fill: true,
+                  fillColor: Color(0xffF3F3F3),
+                  icon: Icons.call,
+                  hintText: "Bank Branch",
+                  validator: (_) {},
+                ),
                 SizedBox(
                   height: 10.2.h,
                 ),
-                const CustomTextFieldWidget(
-                    fill: true,
-                    fillColor: Color(0xffF3F3F3),
-                    icon: Icons.mail,
-                    hintText: "Account Holder Name"),
+                CustomTextFieldWidget(
+                  fill: true,
+                  fillColor: Color(0xffF3F3F3),
+                  icon: Icons.mail,
+                  hintText: "Account Holder Name",
+                  validator: (_) {},
+                ),
                 SizedBox(
                   height: 10.2.h,
                 ),
-                const CustomTextFieldWidget(
-                    fill: true,
-                    fillColor: Color(0xffF3F3F3),
-                    icon: Icons.person_outline,
-                    hintText: "User Name"),
+                CustomTextFieldWidget(
+                  fill: true,
+                  fillColor: Color(0xffF3F3F3),
+                  icon: Icons.person_outline,
+                  hintText: "User Name",
+                  validator: (_) {},
+                ),
                 SizedBox(
                   height: 10.h,
                 ),

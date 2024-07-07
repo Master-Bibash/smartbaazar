@@ -7,6 +7,7 @@ import 'package:smartbazar/features/auth/api/login_api.dart';
 import 'package:smartbazar/features/auth/model/login_model.dart';
 import 'package:smartbazar/features/home/view/home_screen.dart';
 import 'package:smartbazar/utils/custom_exception.dart';
+import 'package:smartbazar/utils/custom_loading_indicatior.dart';
 
 final authRepositoryProvider = Provider<LoginApi>((ref) {
   return LoginApi();

@@ -117,27 +117,31 @@ class VendroDetailsScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const CustomTextFieldWidget(
-                                suffixIcon: Icon(
-                                  Icons.visibility,
-                                  color: Color(0xffADADAD),
-                                ),
-                                fill: true,
-                                fillColor: Color(0xffF3F3F3),
-                                icon: Icons.person,
-                                hintText: "New Password"),
+                            CustomTextFieldWidget(
+                              suffixIcon: Icon(
+                                Icons.visibility,
+                                color: Color(0xffADADAD),
+                              ),
+                              fill: true,
+                              fillColor: Color(0xffF3F3F3),
+                              icon: Icons.person,
+                              hintText: "New Password",
+                              validator: (String) {},
+                            ),
                             SizedBox(
                               height: 10.2.h,
                             ),
-                            const CustomTextFieldWidget(
-                                suffixIcon: Icon(
-                                  Icons.visibility,
-                                  color: Color(0xffADADAD),
-                                ),
-                                fill: true,
-                                fillColor: Color(0xffF3F3F3),
-                                icon: Icons.person,
-                                hintText: "Confirm Password"),
+                            CustomTextFieldWidget(
+                              suffixIcon: Icon(
+                                Icons.visibility,
+                                color: Color(0xffADADAD),
+                              ),
+                              fill: true,
+                              fillColor: Color(0xffF3F3F3),
+                              icon: Icons.person,
+                              hintText: "Confirm Password",
+                              validator: (String) {},
+                            ),
                             SizedBox(
                               height: 10.h,
                             ),

@@ -67,6 +67,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 hintText: 'Name',
                 fill: true,
                 fillColor: Color.fromARGB(255, 241, 234, 234),
+                validator: (String) {},
               ),
               SizedBox(
                 height: 8.h,
@@ -76,6 +77,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 hintText: 'Contact Number',
                 fill: true,
                 fillColor: Color.fromARGB(255, 241, 234, 234),
+                validator: (String) {},
               ),
               SizedBox(
                 height: 8.h,
@@ -86,6 +88,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 readOnly: true,
                 fill: true,
                 fillColor: Color.fromARGB(255, 241, 234, 234),
+                validator: (String) {},
               ),
               SizedBox(
                 height: 20.h,
@@ -127,6 +130,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 hintText: 'City',
                 fill: true,
                 fillColor: Color.fromARGB(255, 241, 234, 234),
+                validator: (String) {},
               ),
               SizedBox(
                 height: 8.h,
@@ -136,6 +140,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 hintText: 'Street Address',
                 fill: true,
                 fillColor: Color.fromARGB(255, 241, 234, 234),
+                validator: (String) {},
               ),
               SizedBox(
                 height: 12.h,

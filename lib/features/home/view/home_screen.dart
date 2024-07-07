@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:smartbazar/constant/image_constant.dart';
 import 'package:smartbazar/features/home/controller/sponsored_controller.dart';
+import 'package:smartbazar/features/home/model/sponsored_model.dart';
 import 'package:smartbazar/features/view/product_deatials_screen.dart';
 import 'package:smartbazar/features/widgets/banner_widget.dart';
 import 'package:smartbazar/features/widgets/brand_bazar_widget.dart';
@@ -39,7 +40,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   ];
   List<Product> filteredProducts = [];
 
-  @override
+//   @override
   void initState() {
     filteredProducts = product;
     super.initState();
@@ -241,8 +242,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                             //                 product: product,
                             //               )));
                             // },
-                             sponsoredModel: 
-                             , onTap: (SponsoredModel ) {  },
+                            product: product,
+                            onTap: (SponsoredModel) {}, sponsoredModel: null,
                             // productName: product.name,
                           );
                         },
@@ -272,32 +273,33 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           fontWeight: FontWeight.w700,
                           color: Colors.black),
                     ),
-                    SizedBox(
-                      height: 291.h,
-                      child: ListView.separated(
-                        primary: false,
-                        physics: BouncingScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        padding: EdgeInsets.only(left: 5.w),
-                        shrinkWrap: true,
-                        itemCount: filteredProducts.length,
-                        itemBuilder: (context, index) => ItemDescriptionWidget(sponsoredModel: , onTap: (SponsoredModel ) {  },
-                          // product: filteredProducts[index],
-                          // onTap: (p) {
-                          //   Navigator.push(
-                          //       context,
-                          //       MaterialPageRoute(
-                          //           builder: (_) =>
-                          //               ProductDetailsScreen(product: p)));
-                          // },
-                        ),
-                        separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(
-                            width: 12.h,
-                          );
-                        },
-                      ),
-                    ),
+                    // SizedBox(
+                    // height: 291.h,
+                    // child: ListView.separated(
+                    //   primary: false,
+                    //   physics: BouncingScrollPhysics(),
+                    //   scrollDirection: Axis.horizontal,
+                    //   padding: EdgeInsets.only(left: 5.w),
+                    //   shrinkWrap: true,
+                    //     itemCount: filteredProducts.length,
+                    //     itemBuilder: (context, index) => ItemDescriptionWidget(
+                    //       onTap: (SponsoredModel) {}, product: product,
+                    //       // product: filteredProducts[index],
+                    //       // onTap: (p) {
+                    //       //   Navigator.push(
+                    //       //       context,
+                    //       //       MaterialPageRoute(
+                    //       //           builder: (_) =>
+                    //       //               ProductDetailsScreen(product: p)));
+                    //       // },
+                    //     ),
+                    //     separatorBuilder: (BuildContext context, int index) {
+                    //       return SizedBox(
+                    //         width: 12.h,
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
                   ],
                 ),
               ),

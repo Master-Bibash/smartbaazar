@@ -8,32 +8,18 @@ import 'package:smartbazar/features/widgets/product_model.dart';
 
 class ItemDescriptionWidget extends StatelessWidget {
   // final String productName;
-  final SponsoredPosts sponsoredModel;
+  // final SponsoredPosts sponsoredModel;
+  final Product product;
   final Function(SponsoredModel) onTap;
   const ItemDescriptionWidget(
       {super.key,
       // required this.productName,
-      required this.sponsoredModel,
-      required this.onTap});
-
-  // int calculateMode(List<int> ratings) {
-  //   if (ratings.isEmpty) return 0;
-  //   Map<int, int> frequencyMap = {};
-  //   for (int rating in ratings) {
-  //     frequencyMap[rating] = (frequencyMap[ratings] ?? 0) + 1;
-  //   }
-  //   return frequencyMap.entries
-  //       .reduce(
-  //           (value, element) => value.value > element.value ? value : element)
-  //       .key;
-  // }
+      required this.product,
+      required this.onTap,
+      required sponsoredModel});
 
   @override
   Widget build(BuildContext context) {
-    // for (var posts in sponsoredModel.sponsoredPosts!) {
-    //   final modeRating =
-    //       posts.avgRating != null ? calculateMode([posts.avgRating!]) : null;
-    // }
     return InkWell(
       onTap: () {
         // Navigator.push(context,
@@ -66,8 +52,8 @@ class ItemDescriptionWidget extends StatelessWidget {
               height: 9.h,
             ),
             Text(
-              // 'Acer Aspire 5 A515-56-32DK Intel\n Core i3 11th Gen/15.6 FHD',
-              sponsoredModel.title.toString(),
+              'Acer Aspire 5 A515-56-32DK Intel\n Core i3 11th Gen/15.6 FHD',
+              // sponsoredModel.title.toString(),
               style: TextStyle(
                   fontSize: 10.sp,
                   color: Colors.black,
@@ -76,14 +62,16 @@ class ItemDescriptionWidget extends StatelessWidget {
             SizedBox(
               height: 16.h,
             ),
-            Text(sponsoredModel.price.toString(),
+            // Text(sponsoredModel.price.toString(),
+            Text('data',
                 style: TextStyle(
                     fontSize: 10.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.w700)),
             Row(
               children: [
-                Text(sponsoredModel.price.toString()),
+                // Text(product.price.toString()),
+                Text('3000'),
                 SizedBox(
                   width: 10.w,
                 ),
@@ -99,7 +87,8 @@ class ItemDescriptionWidget extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      sponsoredModel.discountedPrice.toString(),
+                      // sponsoredModel.discountedPrice.toString(),
+                      '0.4',
                       style: TextStyle(
                           fontSize: 9.sp,
                           fontWeight: FontWeight.w400,
@@ -110,7 +99,8 @@ class ItemDescriptionWidget extends StatelessWidget {
             SizedBox(
               height: 13.h,
             ),
-            Text(sponsoredModel.contactName.toString(),
+            // Text(sponsoredModel.contactName.toString(),
+            Text('data',
                 style: TextStyle(
                     decoration: TextDecoration.lineThrough,
                     fontSize: 9.sp,
@@ -184,7 +174,7 @@ class ItemDescriptionWidget extends StatelessWidget {
                   width: 3.w,
                 ),
                 Text(
-                  sponsoredModel.pickup.toString(),
+                  "sponsoredModel.pickup.toString(),",
                   style: TextStyle(
                     fontSize: 9.sp,
                     fontWeight: FontWeight.w400,

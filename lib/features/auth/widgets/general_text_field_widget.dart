@@ -9,18 +9,21 @@ class CustomTextFieldWidget extends StatefulWidget {
   final bool? fill;
   final bool? readOnly;
   final Function? onChanged;
+  final String? Function(String?) validator;
   final TextEditingController? controller;
 
-  const CustomTextFieldWidget(
-      {super.key,
-      required this.icon,
-      required this.hintText,
-      this.suffixIcon,
-      this.fill,
-      this.fillColor,
-      this.readOnly,
-      this.onChanged,
-      this.controller});
+  const CustomTextFieldWidget({
+    super.key,
+    required this.icon,
+    required this.hintText,
+    this.suffixIcon,
+    this.fill,
+    this.fillColor,
+    this.readOnly,
+    this.onChanged,
+    this.controller,
+    required this.validator,
+  });
 
   @override
   State<CustomTextFieldWidget> createState() => _CustomTextFieldWidgetState();
@@ -35,6 +38,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
       onChanged: (newValue) {
         widget.onChanged?.call(newValue);
       },
+      validator: (value) => widget.validator(value),
       decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(vertical: 10),
           border: OutlineInputBorder(

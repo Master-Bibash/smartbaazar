@@ -24,7 +24,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
@@ -51,7 +51,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       } else if (state is ErrorState) {
         print(state.exception.message);
       } else if (State is LoadingState) {
-        onLoading(context);
+        // onLoading(context);
       }
     });
     return GenericSafeArea(
@@ -91,6 +91,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   controller: emailController,
                   icon: Icons.mail,
                   hintText: 'Email',
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter your password';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(
                   height: 22.h,
@@ -99,6 +105,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   controller: passwordController,
                   icon: Icons.lock,
                   hintText: 'Password',
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return 'Please enter your password';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(
                   height: 20.h,
@@ -130,11 +142,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 GeneralEelevatedButton(
                   text: 'Log In',
                   onPresssed: () async {
-                    if (!_formKey.currentState!.validate()) {}
-                    await loginProvider.login(context,
-                        ref: ref,
-                        email: emailController.text,
-                        password: passwordController.text);
+                    if (_formKey.currentState!.validate()) {
+                      await loginProvider.login(context,
+                          ref: ref,
+                          email: emailController.text,
+                          password: passwordController.text);
+                    }
                   },
                 ),
                 SizedBox(
@@ -150,7 +163,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 ),
                 SizedBox(
                   height: 20.h,
-                )
+                ),
               ],
             ),
           ),

@@ -42,51 +42,58 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(
                   height: 40.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.person_2_outlined,
                   hintText: 'Name',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.call,
                   hintText: 'Phone Number',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.mail,
                   hintText: 'Email',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.person_2_outlined,
                   hintText: 'User Name',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.local_activity,
                   hintText: 'Age',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.person_2_rounded,
                   hintText: 'Sex',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 22.h,
                 ),
-                const CustomTextFieldWidget(
+                CustomTextFieldWidget(
                   icon: Icons.lock,
                   hintText: 'Password',
+                  validator: (String) {},
                 ),
                 SizedBox(
                   height: 20.h,

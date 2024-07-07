@@ -62,11 +62,11 @@ class CustomDrawer extends StatelessWidget {
                 listOfDrawerItem: drawerList,
                 onTap: (ttile) {
                   switch (ttile) {
-                    case 'Products':
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const AllProductType()));
+                    // case 'Products':
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (_) => const AllProductType()));
                   }
                   switch (ttile) {
                     case 'B2B':
@@ -85,10 +85,10 @@ class CustomDrawer extends StatelessWidget {
                   }
                   switch (ttile) {
                     case 'Services':
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const ScratchWinHomeScreen()));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (_) => const ScratchWinHomeScreen()));
                   }
                 },
               ),
