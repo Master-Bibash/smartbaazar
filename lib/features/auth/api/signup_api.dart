@@ -13,8 +13,8 @@ class SignUpAPi {
       required String password_confirmation,
       required String country_code,
       required String username,
-      required String accept_terms,
-      required String accept_marketing_offers}) async {
+      required int accept_terms,
+      required int accept_marketing_offers}) async {
     final body = {
       'name': name,
       'phone': phone,

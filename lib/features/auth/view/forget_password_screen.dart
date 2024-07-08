@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:smartbazar/common/controller/generic_state.dart';
 import 'package:smartbazar/constant/image_constant.dart';
+import 'package:smartbazar/features/auth/controller/forget_password_controller.dart';
 import 'package:smartbazar/features/auth/view/login_screen.dart';
 import 'package:smartbazar/features/auth/view/otp_screen.dart';
 import 'package:smartbazar/features/auth/widgets/general_elevated_button_widget.dart';
@@ -8,12 +11,35 @@ import 'package:smartbazar/features/auth/widgets/general_text_field_widget.dart'
 import 'package:smartbazar/features/auth/widgets/rich_text_widget.dart';
 import 'package:smartbazar/features/home/view/home_screen.dart';
 import 'package:smartbazar/general_widget/general_safe_area.dart';
+import 'package:smartbazar/utils/custom_exception.dart';
+import 'package:smartbazar/utils/custom_loading_indicatior.dart';
 
-class ForgetPasswordScreen extends StatelessWidget {
+class ForgetPasswordScreen extends ConsumerStatefulWidget {
   const ForgetPasswordScreen({super.key});
 
   @override
+  ConsumerState<ForgetPasswordScreen> createState() =>
+      _ForgetPasswordScreenState();
+}
+
+class _ForgetPasswordScreenState extends ConsumerState<ForgetPasswordScreen> {
+  final _formKey = GlobalKey<FormState>();
+  final phoneNumberController = TextEditingController();
+  final emailController = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
+    final forgetPasswordProvider = ref.watch(forgetPasswordController.notifier);
+    ref.listen(forgetPasswordController, (pervious, state) {
+      if (state is LoadingState) {
+        onLoading(context);
+      } else if (state is LoadedState) {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (_) => LoginScreen()));
+      } else if (state is ErrorState) {
+        Exception(getCustomException(state.exception.message));
+      }
+    });
     return GenericSafeArea(
       child: Scaffold(
         body: Padding(
@@ -56,20 +82,25 @@ class ForgetPasswordScreen extends StatelessWidget {
                 ),
                 CustomTextFieldWidget(
                   icon: Icons.mail,
-                  hintText: 'Email or Phone Number',
+                  hintText: 'user email',
+                  controller: emailController,
                   validator: (String) {},
+                ),
+                SizedBox(
+                  height: 22.h,
+                ),
+                CustomTextFieldWidget(
+                  icon: Icons.mail,
+                  hintText: 'Phone number',
+                  controller: emailController,
+                  validator: (_) {},
                 ),
                 SizedBox(
                   height: 60.h,
                 ),
                 GeneralEelevatedButton(
                   text: 'Send',
-                  onPresssed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const OtpScreen()));
-                  },
+                  onPresssed: () {},
                 ),
                 SizedBox(
                   height: 120.h,
@@ -77,7 +108,14 @@ class ForgetPasswordScreen extends StatelessWidget {
                 RichTextWidget(
                   title: 'Want to reach home screen? ',
                   subtitle: 'Go back',
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (_formKey.currentState!.validate()) {
+                      await forgetPasswordProvider.forgetPassword(context,
+                          phone: phoneNumberController.text,
+                          phone_country: "NP",
+                          login: emailController.text);
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 20.h,
